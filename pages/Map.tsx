@@ -1,0 +1,67 @@
+import { Col, List, Pagination, Row, Table } from 'antd';
+import React, { FC, use } from 'react'
+import {useState, useEffect} from 'react'
+import MyCard from './Card';
+import axios from 'axios';
+
+interface Props {
+    props: any;
+}
+
+export const Map:FC = () => {
+
+    const [loading, setLoading] = useState(false);
+
+    const [instance, setInstance] = useState([]);
+    useEffect(() => {
+        setLoading(true)
+        fetch("http://127.0.0.1:3080/products")
+            .then((response) => {
+                return response.json();
+            })
+            .then((data) => {
+                setInstance(data);
+            })
+            .finally(() => {
+                setLoading(false)
+            })
+        }, []);
+    
+    console.log(instance)
+
+    const [posts, setPosts] = useState([])
+    const defaultState = {
+        items: [],
+        isFetching: true,
+        pageSize: 4,
+        perPage: 10,
+        totalCount: 50
+    }
+
+    return (
+        <>
+       <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} justify='space-around'>
+
+            {instance.map((instance: any) => <MyCard instance={instance}/>) }
+           
+            <Col className="gutter-row" span={6}>
+
+            </Col>
+
+            <Col className="gutter-row" span={6}>
+
+            </Col>
+
+            <Col className="gutter-row" span={6}>
+
+            </Col>
+
+            <Col className="gutter-row" span={6}>
+
+            </Col>
+            <Pagination defaultCurrent={1} />
+        </Row>
+        </>
+    );
+}
+
