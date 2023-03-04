@@ -1,1 +1,0 @@
-(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[66],{5854:function(n,i,t){(window.__NEXT_P=window.__NEXT_P||[]).push(["/Pagination",function(){return t(7407)}])},7407:function(n,i,t){"use strict";t.r(i);var u=t(5893);t(7294);let _=()=>(0,u.jsx)("div",{className:"pagination"});i.default=_}},function(n){n.O(0,[774,888,179],function(){return n(n.s=5854)}),_N_E=n.O()}]);

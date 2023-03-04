@@ -25,7 +25,7 @@ const MyCard: React.FC<Props> = ({instance}) => {
       <Row justify={'space-around'}>
         <Col>
       <div className='card_style'>
-      <Card style={{ width: 300 }} hoverable>
+      <Card style={{ width: 300, zoom: "85%"}} hoverable>
         <div className="img_card">
           <Image
             width={250}

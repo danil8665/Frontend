@@ -97,7 +97,6 @@ body {
 }
 
 .card_style {
-  zoom: 85%;
   padding: 10px;
 }
 
@@ -232,7 +231,7 @@ body {
   }
 
   .homepage_wrap {
-    zoom: 60%;
+    zoom: 80%;
   }
 
 }

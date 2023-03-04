@@ -78,7 +78,7 @@ const Home = () => {
     localStorage.removeItem("username")
     localStorage.removeItem("nextauth.message")
     setTimeout(() => {
-      router.push('/');
+      router.reload()
     }, 2500)
   }
 
@@ -100,7 +100,7 @@ const Home = () => {
       <Layout className="layout" style={{ minHeight: '100vh' }}>
       <Sider         
       collapsible
-      theme={theme} collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} breakpoint={'lg'} collapsedWidth={60}>
+      theme={theme} collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} breakpoint={'lg'} collapsedWidth={0}>
         <Menu defaultSelectedKeys={['1']} mode='vertical'
        theme={theme}
         > 
@@ -125,7 +125,6 @@ const Home = () => {
           <div className='loggedIn'>
               <Menu.Item>
                   {`${localStorage.getItem('username')}`}&nbsp;&nbsp;&nbsp;
-
                   <Button style={{marginRight:10}} type={type} onClick={logOut} icon={<LogoutOutlined/>}>Выйти</Button>
               </Menu.Item>           
                 </div>
@@ -156,9 +155,9 @@ const Home = () => {
               <LoadingOutlined style={{ fontSize: 24 }} spin />
               </div>
               <Map />          
-            <FloatButton.BackTop />
+            
             </Row>
-
+            <FloatButton.BackTop />
             </div>
           </Content>
 
@@ -193,7 +192,7 @@ const Home = () => {
       <Sider         
       
       collapsible
-      theme={theme} collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} breakpoint={'lg'} collapsedWidth={60}>
+      theme={theme} collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} breakpoint={'lg'} collapsedWidth={0}>
         <Menu defaultSelectedKeys={['1']} mode='vertical'
         theme={theme}
         > 
