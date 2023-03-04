@@ -37,7 +37,7 @@ export const Map:FC = () => {
         <>
        <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} justify='space-around'>
 
-            {instance.map((instance: any, idx) => <MyCard key={idx} instance={instance}/>) }
+            {instance.map((instance: any) => <MyCard key={1} instance={instance}/>) }
            
             <Col className="gutter-row" span={6}>
 
@@ -58,4 +58,6 @@ export const Map:FC = () => {
         </>
     );
 }
+
+export default Map;
 

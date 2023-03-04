@@ -8,21 +8,17 @@ import { useEffect, useState } from 'react';
 const { Meta } = Card;
 
 interface Props {
-  instance: any;
+  instance: {
+    picture: string | null;
+    manufacturer: string;
+    name: string;
+    price: number;
+    _id: string;
+  };
 }
 
 const MyCard: React.FC<Props> = ({instance}) => {
   console.log(instance)
-//   const [image, setImage] = useState("");
-//   useEffect(() => {
-//     fetch('http://localhost:3080/products')
-//         .then((response) => {
-//             return response.text();
-//         })
-//         .then((data) => {
-//             setImage(data);
-//         });
-// }, []);
 
   return (
       <>
@@ -33,22 +29,21 @@ const MyCard: React.FC<Props> = ({instance}) => {
         <div className="img_card">
           <Image
             width={250}
-            src={`${instance.picture}`}
+            src={`${instance?.picture}`}
           />
         </div>
         <Meta
-          title={`${instance.manufacturer}`}
+          title={`${instance?.manufacturer}`}
           // description={`${instance.name}`}
         />
-         <h3>{`${instance.name}`}</h3>
+         <h3>{`${instance?.name}`}</h3>
         <div className='cardPrice'>
-        Цена: {`${instance.price}`} грн
+        Цена: {`${instance?.price}`} грн
         </div>
         <p>Оценка модели</p>
-        <Rate disabled value={`${instance.rate}`} />
         <br/>
         <br/>
-        <Link href="/api/about/[id].tsx" as={`/about/${instance._id}`}><Button type={'primary'}>Подробнее</Button></Link>
+        <Link href="/api/about/[id].tsx" as={`/about/${instance?._id}`}><Button type={'primary'}>Подробнее</Button></Link>
       </Card>
       </div>
       </Col>

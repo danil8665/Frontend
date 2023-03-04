@@ -2,7 +2,7 @@ import { Alert, Button, Checkbox, Col, Divider, Form, Input, Row, Tabs, message 
 import Router, { useRouter } from 'next/router';
 import { type } from 'os';
 import { useEffect, useState } from 'react';
-import notFound from './404';
+
 
 const Login = () => {
 
