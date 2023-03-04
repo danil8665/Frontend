@@ -12,8 +12,8 @@ export default function App(
 }:any) {
 
   return (
-    <SessionProvider session={session}>
+    // <SessionProvider session={session}>
       <Component {...pageProps} />
-    </SessionProvider>
+    // </SessionProvider>
   )
 }

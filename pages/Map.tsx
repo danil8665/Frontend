@@ -2,7 +2,6 @@ import { Col, List, Pagination, Row, Table } from 'antd';
 import React, { FC, use } from 'react'
 import {useState, useEffect} from 'react'
 import MyCard from './Card';
-import axios from 'axios';
 
 interface Props {
     props: any;
@@ -14,16 +13,12 @@ export const Map:FC = () => {
 
     const [instance, setInstance] = useState([]);
     useEffect(() => {
-        setLoading(true)
         fetch("http://127.0.0.1:3080/products")
             .then((response) => {
                 return response.json();
             })
             .then((data) => {
                 setInstance(data);
-            })
-            .finally(() => {
-                setLoading(false)
             })
         }, []);
     
@@ -42,7 +37,7 @@ export const Map:FC = () => {
         <>
        <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} justify='space-around'>
 
-            {instance.map((instance: any) => <MyCard instance={instance}/>) }
+            {instance.map((instance: any, idx) => <MyCard key={idx} instance={instance}/>) }
            
             <Col className="gutter-row" span={6}>
 
@@ -59,7 +54,6 @@ export const Map:FC = () => {
             <Col className="gutter-row" span={6}>
 
             </Col>
-            <Pagination defaultCurrent={1} />
         </Row>
         </>
     );

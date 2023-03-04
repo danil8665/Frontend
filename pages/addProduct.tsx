@@ -12,12 +12,12 @@ import {
 import { Button, Card, Carousel, Cascader, Checkbox, Col, DatePicker, FloatButton, Form, Image, Input, InputNumber, MenuProps, Modal, Radio, Rate, Row, Select, Tabs, Tooltip, TreeSelect, Upload } from 'antd';
 import { Breadcrumb, Layout, Menu } from 'antd';
 import Link from 'next/link';
-import Login from './Login';
 import Register from './Register';
 import MySearch from './Search';
 import FastOrder from './FastOrder';
 import TextArea from 'antd/lib/input/TextArea';
 import CommentModal from './CommentModal';
+import { RcFile } from 'antd/es/upload';
 
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -26,6 +26,8 @@ const AddProduct:React.FC= () => {
     
 
   let secondsToGo = 4;
+
+  const [file, setFile] = useState<RcFile | null>(null)
 
   const [visible, setVisible] = useState(false);
 
@@ -54,17 +56,19 @@ const uploadButton = (
   </div>
 );
 
-    const onFinish = async (values: any) => {
-        await fetch('http://127.0.0.1:3080/product', {
-          method: "POST",
-          body: JSON.stringify(values),
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
-          }
-        })
-        console.log('Success:', values);
-      };
+
+
+const onFinish = async (values: any) => {
+  const formData = new FormData();
+  formData.append('file', file ? file : '');
+  formData.append('product', JSON.stringify(values))
+
+  await fetch('http://127.0.0.1:3080/upload', {
+    method: "POST",
+    body: formData
+  });
+  console.log('Success:', values);
+};
 
   const [collapsed, setCollapsed] = useState(false);
 
@@ -126,19 +130,27 @@ const uploadButton = (
           <InputNumber />
         </Form.Item>
         <Form.Item 
-         name="picture"
+         name="description"
          label="Описание продукта">
           <TextArea rows={4} />
         </Form.Item>
-        <Form.Item label="Фото" valuePropName="fileList">
-        <Upload
-      listType="picture-card"
-        >
-        <div>
-              <PlusOutlined />
-              <div style={{ marginTop: 8 }}>Выберите файл</div>
-            </div>
-    </Upload>
+        <Form.Item name="picture" label="Фото" valuePropName="file">
+         <Upload
+  listType="picture-card"
+  className="avatar-uploader"
+  showUploadList={false}
+  beforeUpload={(file) => {
+    setFile(file);
+    return false;
+  }}
+>
+  {file ? (
+    <img src={URL.createObjectURL(file)} alt="avatar" style={{ width: '100%' }} />
+  ) : (
+    uploadButton
+  )}
+</Upload>
+
         </Form.Item>
         <Form.Item
                  noStyle

@@ -13,27 +13,27 @@ interface Props {
 
 const MyCard: React.FC<Props> = ({instance}) => {
   console.log(instance)
-  const [image, setImage] = useState("");
-  useEffect(() => {
-    fetch('http://localhost:3080/test')
-        .then((response) => {
-            return response.text();
-        })
-        .then((data) => {
-            setImage(data);
-        });
-}, []);
+//   const [image, setImage] = useState("");
+//   useEffect(() => {
+//     fetch('http://localhost:3080/products')
+//         .then((response) => {
+//             return response.text();
+//         })
+//         .then((data) => {
+//             setImage(data);
+//         });
+// }, []);
 
   return (
       <>
       <Row justify={'space-around'}>
         <Col>
       <div className='card_style'>
-      <Card style={{ width: 300}} hoverable>
+      <Card style={{ width: 300 }} hoverable>
         <div className="img_card">
           <Image
             width={250}
-            src={`${image}`}
+            src={`${instance.picture}`}
           />
         </div>
         <Meta

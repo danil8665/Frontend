@@ -88,30 +88,33 @@ const onFinishFailed = (errorInfo: any) => {
 };
 
 const router = useRouter()
-console.log(router)
+console.log(router, 'ROUTER')
 
 const [collapsed, setCollapsed] = useState(false);
 
 const [instance, setInstance] = useState<any>('')
 useEffect(() => {
+   if (Object.keys(router.query).length > 0) {
     fetch(`http://127.0.0.1:3080/product/${router.query.id}`)
-        .then((response) => {
-            return response.json();
-        })
-        .then((data) => {
-            setInstance(data);
-        })
-    }, []);
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) => {
+        setInstance(data);
+    })
+   }
+    }, [router.query]);
 
     const [image, setImage] = useState("");
     useEffect(() => {
-      fetch('http://localhost:3080/test')
+      fetch('http://localhost:3080/products')
           .then((response) => {
               return response.text();
           })
           .then((data) => {
               setImage(data);
           });
+          
   }, []);
 
     const [theme, setTheme] = useState<MenuTheme>('dark');
@@ -197,16 +200,16 @@ theme={theme} collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} 
        <Image
        preview={{ visible: false }}
        width={650}
-       src={`${image}`}
+       src={`${instance.picture}`}
        onClick={() => setVisible(true)}
      />
 
      <div style={{ display: 'none' }}>
       
        <Image.PreviewGroup preview={{ visible, onVisibleChange: (vis) => setVisible(vis) }}>
-         <Image src={`${image}`} />
-         <Image src={`${image}`} />
-         <Image src={`${image}`} />
+         <Image src={`${instance.picture}`} />
+         <Image src={'2.jpg'} />
+         <Image src={`3.jpg`} />
        </Image.PreviewGroup>
        </div>
 
@@ -235,7 +238,7 @@ theme={theme} collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} 
 <p className='discount'>{`${instance.discount}`}</p>
 </div>
 <h1>Оценить(по желанию)</h1>
- <Rate defaultValue={4}/>
+ <Rate defaultValue={0}/>
 <Form>
  <Form.Item>
  <Title level={4}>Описание:</Title>
@@ -381,12 +384,12 @@ autoComplete="off"
         <Image
         preview={{ visible: false }}
         width={650}
-        src={`${image}`}
+        src={`${instance.picture}`}
         onClick={() => setVisible(true)}
       />
       <div style={{ display: 'none' }}>
         <Image.PreviewGroup preview={{ visible, onVisibleChange: (vis) => setVisible(vis) }}>
-          <Image src="1.jpg" />
+          <Image src={`${instance.picture}`} />
           <Image src="2.jpg" />
           <Image src="3.jpg" />
         </Image.PreviewGroup>

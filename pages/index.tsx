@@ -25,6 +25,8 @@ import Icon from './icon';
 import { useRouter } from 'next/router';
 import { ButtonType } from 'antd/lib/button';
 import { stringify } from 'querystring';
+import list from 'antd/lib/transfer/list';
+
 
 const { Header, Sider, Content } = Layout;
 
@@ -94,7 +96,7 @@ const Home = () => {
     return (
       <>
       {contextHolder}
-      {onFinish}
+      {/* {onFinish} */}
       <Layout className="layout" style={{ minHeight: '100vh' }}>
       <Sider         
       collapsible
@@ -186,7 +188,7 @@ const Home = () => {
   return (
       <>
       {contextHolder}
-      {onFinish}
+      {/* {onFinish} */}
       <Layout className="layout" style={{ minHeight: '100vh' }}>
       <Sider         
       
@@ -317,3 +319,7 @@ export default Home;
                   </div>
                 </Menu.Item>
                 </div> */}
+
+function useAntdFormTable(list: any): { formProps: any; tableProps: any; paginationProps: any; } {
+  throw new Error('Function not implemented.');
+}
