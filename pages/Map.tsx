@@ -13,7 +13,7 @@ export const Map:FC = () => {
 
     const [instance, setInstance] = useState([]);
     useEffect(() => {
-        fetch("http://66.241.124.243:8080/products")
+        fetch("http://66.241.125.70:8080/products")
             .then((response) => {
                 return response.json();
             })
