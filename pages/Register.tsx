@@ -34,8 +34,6 @@ const Register: React.FC = () => {
     console.log('Failed:', errorInfo);
   };
 
-// 'http://localhost:3080/auth/register'
-
   return (
     <>
 

@@ -74,7 +74,7 @@ const onFinish = async (values: any) => {
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} breakpoint={'lg'} collapsedWidth={60}>
+      <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} breakpoint={'lg'} collapsedWidth={0}>
       <div className="logo">
 
         </div>
@@ -89,9 +89,6 @@ const onFinish = async (values: any) => {
       <div className="homepage_wrap">
         <Header className="site-layout-background" style={{ padding: 0 }} >
         <div className="header">
-                  <div className="search">
-                   <MySearch />
-                  </div> 
             </div>
         </Header>
         <Content style={{ margin: '0 16px' }}>

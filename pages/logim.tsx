@@ -81,7 +81,7 @@ const Login = () => {
   }
 
   const onFinishRegister = async (values: any) => {
-    const response = await fetch('http://127.0.0.1:3080/auth/register', {
+    const response = await fetch('http://127.0.0.1:8080/auth/register', {
       method: "POST",
       body: JSON.stringify(values),
       headers: {
