@@ -19,7 +19,7 @@ const Register: React.FC = () => {
   };
 
   const onFinish = async (values: any) => {
-    await fetch('http://127.0.0.1:3080/auth/register', {
+    await fetch('http://66.241.124.243:8080/auth/register', {
       method: "POST",
       body: JSON.stringify(values),
       headers: {
@@ -36,54 +36,6 @@ const Register: React.FC = () => {
 
   return (
     <>
-
-{/* 
-<Drawer
-  title="Регистрация"
-  width={360}
-  onClose={onClose}
-  open={open}
-  bodyStyle={{ paddingBottom: 80 }}
->
-
-  <Form
-      name="basic"
-      labelCol={{ span: 12 }}
-      wrapperCol={{ span: 25 }}
-      initialValues={{ remember: true }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      autoComplete="on"
-  >     
-
-      <Form.Item
-        name="username"
-        rules={[{ required: true, message: 'Пожалуйста введите логин!' }]}
-        label="Введите логин"
-      >
-        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Логин или почта" />
-      </Form.Item>
-
-      <Form.Item
-        label="Ведите пароль"
-        name="password"
-        rules={[{ required: true, message: 'Пожалуйста введите пароль!' }]}
-      >
-        <Input.Password
-          placeholder="Введите пароль"
-          prefix={<LockOutlined className="site-form-item-icon" />}
-        />
-      </Form.Item>
-
-
-      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button type="primary" htmlType='submit'>
-          Регистрация
-        </Button>
-      </Form.Item>
-    </Form>
-  </Drawer> */}
-
     </>
     
   );
