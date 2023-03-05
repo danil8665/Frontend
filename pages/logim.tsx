@@ -53,7 +53,7 @@ const Login = () => {
   }
 
   const onFinish = async (values: any) => {
-    const response = await fetch('http://66.241.125.70:8080/auth/login', {
+    const response = await fetch('https://66.241.125.70:8080/auth/login', {
       method: "POST",
       body: JSON.stringify(values),
       headers: {
@@ -81,7 +81,7 @@ const Login = () => {
   }
 
   const onFinishRegister = async (values: any) => {
-    const response = await fetch('http://66.241.125.70:8080/auth/register', {
+    const response = await fetch('https://66.241.125.70:8080/auth/register', {
       method: "POST",
       body: JSON.stringify(values),
       headers: {

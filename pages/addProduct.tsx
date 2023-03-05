@@ -63,7 +63,7 @@ const onFinish = async (values: any) => {
   formData.append('file', file ? file : '');
   formData.append('product', JSON.stringify(values))
 
-  await fetch('http://66.241.125.70:8080/upload', {
+  await fetch('https://66.241.125.70:8080/upload', {
     method: "POST",
     body: formData
   });

@@ -62,7 +62,7 @@ const Home = () => {
   };
 
   const onFinish = async (values: any) => {
-    const response = await fetch('http://66.241.125.70:8080/auth/user', {
+    const response = await fetch('https://66.241.125.70:8080/auth/user', {
       method: "GET",
       body: JSON.stringify(values),
       headers: {
