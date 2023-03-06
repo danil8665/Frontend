@@ -100,7 +100,7 @@ const Home = () => {
       <Layout className="layout" style={{ minHeight: '100vh' }}>
       <Sider         
       collapsible
-      theme={theme} collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} breakpoint={'lg'} collapsedWidth={0}>
+      theme={theme} collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} breakpoint={'lg'} collapsedWidth={60}>
         <Menu defaultSelectedKeys={['1']} mode='vertical'
        theme={theme}
         > 
