@@ -16,7 +16,7 @@ const S3Uploader = () => {
     const formData = new FormData();
     formData.append('file', selectedFile);
 
-    axios.post('http://66.241.124.243:8080/upload', formData, {
+    axios.post('http://66.241.124.243:80/upload', formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }

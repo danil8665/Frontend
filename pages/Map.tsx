@@ -13,7 +13,7 @@ export const Map:FC = () => {
 
     const [instance, setInstance] = useState([]);
     useEffect(() => {
-        fetch("https://127.0.0.1:8080/products")
+        fetch("http://127.0.0.1:80/products")
             .then((response) => {
                 return response.json();
             })
@@ -35,10 +35,22 @@ export const Map:FC = () => {
 
     return (
         <>
-       <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} justify='space-around'>
-            {instance.map((instance: any) => <MyCard key={1} instance={instance}/>) }
+       <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} justify='center'>
+     
+        <Col span={5}>
+            
+        </Col>
+        <Col span={5}>
 
-        </Row>
+        </Col>
+        <Col span={5}>
+        
+        </Col>
+        <Col span={5}>
+        
+        </Col>  
+        {instance.map((instance: any) => <MyCard key={1} instance={instance}/>) }  
+       </Row>
         </>
     );
 }

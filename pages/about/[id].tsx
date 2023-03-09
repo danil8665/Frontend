@@ -95,7 +95,7 @@ const [collapsed, setCollapsed] = useState(false);
 const [instance, setInstance] = useState<any>('')
 useEffect(() => {
    if (Object.keys(router.query).length > 0) {
-    fetch(`https://127.0.0.1:8080/product/${router.query.id}`)
+    fetch(`http://127.0.0.1:80/product/${router.query.id}`)
     .then((response) => {
         return response.json();
     })
@@ -107,7 +107,7 @@ useEffect(() => {
 
     const [image, setImage] = useState("");
     useEffect(() => {
-      fetch('https://127.0.0.1:8080/products')
+      fetch('http://127.0.0.1:80/products')
           .then((response) => {
               return response.text();
           })
@@ -161,7 +161,6 @@ theme={theme} collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} 
  <Menu mode='vertical'
  theme={theme}
  > 
-
    <Menu.Item key={1}><Link href={'/'}><HomeOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Главная &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Link></Menu.Item>
    <Menu.Item key={2}><SearchOutlined />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Категории &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Menu.Item>
    <Menu.Item key={3}><UserOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Профиль &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Menu.Item>

@@ -19,7 +19,7 @@ const Register: React.FC = () => {
   };
 
   const onFinish = async (values: any) => {
-    await fetch('https://127.0.0.1:8080/auth/register', {
+    await fetch('http://127.0.0.1:80/auth/register', {
       method: "POST",
       body: JSON.stringify(values),
       headers: {

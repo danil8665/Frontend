@@ -62,7 +62,7 @@ const Home = () => {
   };
 
   const onFinish = async (values: any) => {
-    const response = await fetch('https://127.0.0.1:8080/auth/user', {
+    const response = await fetch('http://127.0.0.1:80/auth/user', {
       method: "GET",
       body: JSON.stringify(values),
       headers: {
@@ -192,7 +192,7 @@ const Home = () => {
       <Sider         
       
       collapsible
-      theme={theme} collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} breakpoint={'lg'} collapsedWidth={0}>
+      theme={theme} collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} breakpoint={'lg'} collapsedWidth={60}>
         <Menu defaultSelectedKeys={['1']} mode='vertical'
         theme={theme}
         > 
@@ -258,7 +258,8 @@ const Home = () => {
               <div className='loader'>
               <LoadingOutlined style={{ fontSize: 24 }} spin />
               </div>
-              <Map />          
+              <Map />     
+   
             <FloatButton.BackTop />
             </Row>
 

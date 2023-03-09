@@ -25,7 +25,7 @@ const MyCard: React.FC<Props> = ({instance}) => {
       <Row justify={'space-around'}>
         <Col>
       <div className='card_style'>
-      <Card style={{ width: 300, zoom: "85%"}} hoverable>
+      <Card style={{ width: 300 }} hoverable>
         <div className="img_card">
           <Image
             width={250}
@@ -40,7 +40,6 @@ const MyCard: React.FC<Props> = ({instance}) => {
         <div className='cardPrice'>
         Цена: {`${instance?.price}`} грн
         </div>
-        <p>Оценка модели</p>
         <br/>
         <br/>
         <Link href="/api/about/[id].tsx" as={`/about/${instance?._id}`}><Button type={'primary'}>Подробнее</Button></Link>

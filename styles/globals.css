@@ -98,6 +98,8 @@ body {
 
 .card_style {
   padding: 10px;
+  zoom: 90%;
+  align-items: center;
 }
 
 .submitButton {
@@ -223,7 +225,7 @@ body {
 @media (max-width: 768px) {
 
   .card_style {
-    zoom: 70%
+    zoom: 50%
   }
 
   .previewImage {
@@ -231,7 +233,7 @@ body {
   }
 
   .homepage_wrap {
-    zoom: 80%;
+    zoom: 85%;
   }
 
 }
