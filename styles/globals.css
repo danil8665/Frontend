@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+* {
+  box-sizing:content-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+}
+
+.img_carousel {
+  zoom: 125%;
+}
+
+.img_card {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.size {
+  display: flex;
+  justify-content: center;
+  margin-left: 110px;
+}
+
+.size_prop {
+  margin-left: 50px;
+}
+
+.pagination {
+  margin: 10px;
+  display: flex;
+}
+
+.logo {
+  display: flex;
+  justify-content: left;
+  margin-top: 7px;
+  margin-right: auto;
+}
+
+.about_logo {
+  display: flex;
+  justify-content: left;
+  font-family: 'Dancing Script', cursive;
+}
+
+.about_content {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 145px;
+}
+
+.price_discount {
+  display: flex;
+}
+
+.icons {
+  zoom: 200%;
+}
+
+.price {
+  font-size: 25px;
+  color: red;
+  margin-top: 5px;
+}
+
+.discount {
+  margin-left: 10px;
+  margin-top: 15px;
+  font-variant: bold;
+  text-decoration: line-through;
+  font-size: 15px;
+  color: grey;
+}
+
+.notFound {
+  background-color: white;
+  color: white;
+  height: auto;
+  width: auto;
+}
+
+.card_style {
+  padding: 10px;
+  zoom: 90%;
+  align-items: center;
+}
+
+.submitButton {
+  width: 110px;
+  margin-left: 200px;
+}
+
+.loader {
+  display: none;
+  text-align: center;
+}
+
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+.cardPrice {
+  font-size: 17px;
+  display: inline-block;
+}
+
+.commentButton {
+  width: 110px;
+}
+
+.pagination {
+  align-items: center;
+}
+
+.loginpage {
+  height: auto;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.menuItems {
+  height: 65px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.about_content_wrap {
+  margin: auto;
+}
+
+.login {
+  display: flex;
+  justify-content: right;
+  margin-left: auto;
+  margin-top: 7px;
+}
+
+.comments {
+  margin-top: 20px;
+}
+
+.loggedIn {
+  margin-top: 7px;
+}
+
+.search {
+  display: flex;
+  justify-content: left;
+  margin-top: 15px;
+  zoom: 90%;
+}
+
+.about_description {
+  zoom: 80%;
+  width: 700px;
+}
+
+.trigger {
+  padding: 0 24px;
+  font-size: 23px;
+  line-height: 64px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.img_about_wrap {
+  zoom: 1.2;
+}
+
+.trigger:hover {
+  color: #1890ff;
+}
+
+.site-layout .site-layout-background {
+  background: rgb(242, 241, 241);
+  overflow: hidden;
+}
+
+
+.layout {
+  height: auto;
+  width: auto;
+  display: flex;
+  justify-content: center;
+}
+/* 011735 blue*/
+
+.wrap_home {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+
+  .card_style {
+    zoom: 50%
+  }
+
+  .previewImage {
+    zoom: 75%;
+  }
+
+  .homepage_wrap {
+    zoom: 85%;
+  }
+
+}
+
+@media (max-width: 1320px) {
+
+  .modal_wrap {
+    zoom: 40%;
+  }
+
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* <div className="lds-dual-ring"></div> */
