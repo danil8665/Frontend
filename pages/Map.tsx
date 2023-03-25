@@ -13,7 +13,7 @@ export const Map:FC = () => {
 
     const [instance, setInstance] = useState([]);
     useEffect(() => {
-        fetch("http://127.0.0.1:80/products")
+        fetch(`${process.env.API_URL}/products`)
             .then((response) => {
                 return response.json();
             })

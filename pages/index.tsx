@@ -30,8 +30,6 @@ import list from 'antd/lib/transfer/list';
 
 const { Header, Sider, Content } = Layout;
 
-
-
 const Home = () => {
 
   const [collapsed, setCollapsed] = useState(true);
@@ -62,7 +60,7 @@ const Home = () => {
   };
 
   const onFinish = async (values: any) => {
-    const response = await fetch('http://127.0.0.1:80/auth/user', {
+    const response = await fetch(`${process.env.API_URL}/auth/user`, {
       method: "GET",
       body: JSON.stringify(values),
       headers: {

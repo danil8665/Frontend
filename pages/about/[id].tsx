@@ -115,7 +115,7 @@ const [collapsed, setCollapsed] = useState(false);
 const [instance, setInstance] = useState<any>('')
 useEffect(() => {
    if (Object.keys(router.query).length > 0) {
-    fetch(`http://127.0.0.1:80/product/${router.query.id}`)
+    fetch(`${process.env.API_URL}/product/${router.query.id}`)
     .then((response) => {
         return response.json();
     })
@@ -127,7 +127,7 @@ useEffect(() => {
 
     const [image, setImage] = useState("");
     useEffect(() => {
-      fetch('http://127.0.0.1:80/products')
+      fetch(`${process.env.API_URL}/products`)
           .then((response) => {
               return response.text();
           })

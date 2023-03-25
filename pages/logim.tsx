@@ -53,7 +53,7 @@ const Login = () => {
   }
 
   const onFinish = async (values: any) => {
-    const response = await fetch('http://127.0.0.1:80/auth/login', {
+    const response = await fetch(`${process.env.API_URL}/auth/login`, {
       method: "POST",
       body: JSON.stringify(values),
       headers: {
@@ -81,7 +81,7 @@ const Login = () => {
   }
 
   const onFinishRegister = async (values: any) => {
-    const response = await fetch('http://127.0.0.1:80/auth/register', {
+    const response = await fetch(`${process.env.API_URL}/auth/register`, {
       method: "POST",
       body: JSON.stringify(values),
       headers: {
