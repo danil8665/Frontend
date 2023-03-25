@@ -42,3 +42,15 @@ const Register: React.FC = () => {
 };
 
 export default Register;
+
+// const onFinish = async (values: any) => {
+//   const formData = new FormData();
+//   formData.append('file', file ? file : '');
+//   formData.append('product', JSON.stringify(values))
+
+//   await fetch('http://127.0.0.1:80/upload', {
+//     method: "POST",
+//     body: formData
+//   });
+//   console.log('Success:', values);
+// };
