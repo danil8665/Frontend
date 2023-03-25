@@ -22,6 +22,7 @@ export const Map:FC = () => {
             })
         }, []);
     
+    
     console.log(instance)
 
     const [posts, setPosts] = useState([])
