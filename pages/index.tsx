@@ -60,7 +60,7 @@ const Home = () => {
   };
 
   const onFinish = async (values: any) => {
-    const response = await fetch(`${process.env.API_URL}/auth/user`, {
+    const response = await fetch(`https://blooming-journey-76324.herokuapp.com/auth/user`, {
       method: "GET",
       body: JSON.stringify(values),
       headers: {

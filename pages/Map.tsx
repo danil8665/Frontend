@@ -13,7 +13,7 @@ export const Map:FC = () => {
 
     const [instance, setInstance] = useState([]);
     useEffect(() => {
-        fetch(`${process.env.API_URL}/products`)
+        fetch(`https://blooming-journey-76324.herokuapp.com/products`)
             .then((response) => {
                 return response.json();
             })

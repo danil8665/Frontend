@@ -115,7 +115,7 @@ const [collapsed, setCollapsed] = useState(false);
 const [instance, setInstance] = useState<any>('')
 useEffect(() => {
    if (Object.keys(router.query).length > 0) {
-    fetch(`${process.env.API_URL}/product/${router.query.id}`)
+    fetch(`https://blooming-journey-76324.herokuapp.com/product/${router.query.id}`)
     .then((response) => {
         return response.json();
     })
@@ -127,7 +127,7 @@ useEffect(() => {
 
     const [image, setImage] = useState("");
     useEffect(() => {
-      fetch(`${process.env.API_URL}/products`)
+      fetch(`https://blooming-journey-76324.herokuapp.com/products`)
           .then((response) => {
               return response.text();
           })

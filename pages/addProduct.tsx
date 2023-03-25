@@ -78,7 +78,7 @@ const onFinish = async (values: any) => {
   formData.append('file', file ? file : '');
   formData.append('product', JSON.stringify(values))
 
-  await fetch(`${process.env.API_URL}/upload`, {
+  await fetch(`https://blooming-journey-76324.herokuapp.com/upload`, {
     method: "POST",
     body: formData
   });
