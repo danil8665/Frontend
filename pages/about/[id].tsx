@@ -35,6 +35,26 @@ const { Title, Text } = Typography;
 
 const About:React.FC<Props> = ({id}) => {
 
+  const exit = () => {
+    messageApi
+      .open({
+        type: 'loading',
+        content: 'Выход',
+        duration: 1,
+      })
+      .then(() => message.success('Вы вышли из аккаунта', 3))
+  };
+
+  const logOut = () => {
+    exit()
+    localStorage.removeItem("token")
+    localStorage.removeItem("username")
+    localStorage.removeItem("nextauth.message")
+    setTimeout(() => {
+      router.push('/');
+    }, 2500)
+  }
+
   const countDown = () => {
 
     let secondsToGo = 5;
@@ -127,33 +147,13 @@ useEffect(() => {
 
     const [messageApi, contextHolder] = message.useMessage();
 
-    const exit = () => {
-      messageApi
-        .open({
-          type: 'loading',
-          content: 'Выход',
-          duration: 1,
-        })
-        .then(() => message.success('Вы вышли из аккаунта', 3))
-    };
-
-    const logOut = () => {
-      exit()
-      localStorage.removeItem("token")
-      localStorage.removeItem("username")
-      localStorage.removeItem("nextauth.message")
-      setTimeout(() => {
-        router.push('/');
-      }, 2500)
-    }
-
-
     if (typeof window !== 'undefined') {
       const item = localStorage.getItem('token')
 
       if (item)
       return (
-        <>        
+        <>    
+         {contextHolder}    
         <Layout className="layout" style={{ minHeight: '100vh' }}>
         <Sider         
 collapsible
@@ -199,6 +199,7 @@ theme={theme} collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} 
        <Image
        preview={{ visible: false }}
        width={650}
+       height={650}
        src={`${instance.picture}`}
        onClick={() => setVisible(true)}
      />
@@ -207,8 +208,6 @@ theme={theme} collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} 
       
        <Image.PreviewGroup preview={{ visible, onVisibleChange: (vis) => setVisible(vis) }}>
          <Image src={`${instance.picture}`} />
-         <Image src={'2.jpg'} />
-         <Image src={`3.jpg`} />
        </Image.PreviewGroup>
        </div>
 
@@ -380,12 +379,13 @@ autoComplete="off"
                 padding: 2,
               }}>     
       <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} justify='space-around'>
-        <Image
-        preview={{ visible: false }}
-        width={650}
-        src={`${instance.picture}`}
-        onClick={() => setVisible(true)}
-      />
+      <Image
+       preview={{ visible: false }}
+       width={650}
+       height={650}
+       src={`${instance.picture}`}
+       onClick={() => setVisible(true)}
+     />
       <div style={{ display: 'none' }}>
         <Image.PreviewGroup preview={{ visible, onVisibleChange: (vis) => setVisible(vis) }}>
           <Image src={`${instance.picture}`} />

@@ -71,7 +71,7 @@ const uploadButton = (
   </div>
 );
 
-
+const [form] = Form.useForm();
 
 const onFinish = async (values: any) => {
   const formData = new FormData();
@@ -83,6 +83,7 @@ const onFinish = async (values: any) => {
     body: formData
   });
   console.log('Success:', values);
+  form.resetFields(); // сброс полей формы
 };
 
   const [collapsed, setCollapsed] = useState(false);
@@ -129,6 +130,7 @@ const onFinish = async (values: any) => {
         labelCol={{ span: 24 }}
         wrapperCol={{ span: 24 }}
         onFinish={onFinish}
+        form={form}
       >
         <Form.Item label="Добавление продукта">
         </Form.Item>
