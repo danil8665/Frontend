@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import {
-  VideoCameraOutlined,
   HomeOutlined,
   UserOutlined,
   FacebookOutlined,
@@ -12,18 +11,14 @@ import {
   PlusOutlined,
   LogoutOutlined
 } from '@ant-design/icons';
-import { Button, Card, Carousel, Col, FloatButton, Form, Image, MenuProps, MenuTheme, message, Modal, QRCode, Radio, Rate, Row, Switch, Tabs, Tooltip } from 'antd';
+import { Button, Card, FloatButton, Form, Image, MenuTheme, message, Modal, Radio, Rate, Row, Switch } from 'antd';
 import { Breadcrumb, Layout, Menu, Popover } from 'antd';
 import Link from 'next/link';
-import Register from '../Register';
-import Search from '../Search';
-import FastOrder from '../FastOrder';
 import TextArea from 'antd/lib/input/TextArea';
-import CommentModal from '../CommentModal';
 import { Typography } from 'antd';
 import { useRouter } from 'next/router'
-import useSWR from 'swr'
 import { ButtonType } from 'antd/lib/button';
+import FastOrder from '../FastOrder';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -299,25 +294,24 @@ autoComplete="off"
 </div>
 </Row>
 
-             <FloatButton.BackTop />
-       </Content>
-       <Footer style={{ textAlign: 'center' }}>
-       Dixi Shoes ©2022 
-           <br/>
-           <div className="icons">
-           <Link href='https://www.instagram.com/dixi_zp/'>
-           <InstagramOutlined />
-           </Link>
-           &nbsp;
-           <Link href='https://m.facebook.com/profile.php?id=100063913516314'>
-           <FacebookOutlined href='/'/>
-           </Link>
-
-           </div>
-       </Footer>
+  <FloatButton.BackTop />
+  </Content>
+  <Footer style={{ textAlign: 'center' }}>
+      Dixi Shoes ©2022 
+    <br/>
+    <div className="icons">
+    <Link href='https://www.instagram.com/dixi_zp/'>
+    <InstagramOutlined />
+    </Link>
+      &nbsp;
+    <Link href='https://m.facebook.com/profile.php?id=100063913516314'>
+    <FacebookOutlined href='/'/>
+    </Link>
+    </div>
+  </Footer>
        {/* </div> */}
-     </Layout>
-   </Layout>
+    </Layout>
+  </Layout>
    </>
 )}
 
@@ -347,7 +341,7 @@ autoComplete="off"
           </div>
              <div className='login'>
               <Menu.Item>
-                 <Link href={'/logim'}>
+                 <Link href={'/login'}>
                   <Button type={type} icon={<LoginOutlined/>}>
                     Вход
                   </Button>
@@ -355,7 +349,7 @@ autoComplete="off"
               </Menu.Item>     
 
                 <Menu.Item>
-                 <Link href={'/logim'}>
+                 <Link href={'/login'}>
                   <Button type={type} icon={<PlusOutlined/>} style={{marginLeft: -20}}>
                     Регистрация
                   </Button>

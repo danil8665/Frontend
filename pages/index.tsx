@@ -1,33 +1,22 @@
 import {
   HomeOutlined,
-  VideoCameraOutlined,
   UserOutlined,
   InstagramOutlined,
   FacebookOutlined,
   SearchOutlined,
-  UsbOutlined,
   LoadingOutlined,
   BulbOutlined,
   BulbFilled,
-  PlusOutlined,
-  LoginOutlined,
   LogoutOutlined,
 
 } from '@ant-design/icons';
-import { Avatar, Badge, Button, Carousel, Layout, Menu, MenuProps, MenuTheme, Space, Switch, Tooltip, FloatButton, Row, Col, Image, theme, ConfigProvider, Pagination, QRCode, message, Divider, ButtonProps, AvatarProps} from 'antd';
-import { Footer } from 'antd/lib/layout/layout';
-import React, { use, useEffect, useState } from 'react';
+import { Button, Carousel, Layout, Menu, MenuTheme, Switch, FloatButton, Row, Col, Image, message } from 'antd';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Map } from './Map'
-import { unstable_getServerSession } from 'next-auth';
-import axios from 'axios';
-import Icon from './icon';
 import { useRouter } from 'next/router';
 import { ButtonType } from 'antd/lib/button';
-import { stringify } from 'querystring';
-import list from 'antd/lib/transfer/list';
 import Main from "./main";
-
+import Map from './Map';
 
 const { Header, Sider, Content } = Layout;
 

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Button, Modal, Typography } from 'antd';
+import React from 'react';
+import { Button, Modal } from 'antd';
 
 const countDown = () => {
 

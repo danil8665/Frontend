@@ -1,25 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
-  VideoCameraOutlined,
   HomeOutlined,
   UserOutlined,
   FacebookOutlined,
   InstagramOutlined,
   SearchOutlined,
   PlusOutlined,
-  UploadOutlined,
   BulbFilled,
   BulbOutlined,
-  LogoutOutlined
 } from '@ant-design/icons';
-import { Button, Card, Carousel, Cascader, Checkbox, Col, DatePicker, FloatButton, Form, Image, Input, InputNumber, MenuProps, Modal, Radio, Rate, Row, Select, Switch, Tabs, Tooltip, TreeSelect, Upload } from 'antd';
-import { Breadcrumb, Layout, Menu } from 'antd';
+import { Button, FloatButton, Form, Input, InputNumber, Row, Switch, Upload } from 'antd';
+import { Layout, Menu } from 'antd';
 import Link from 'next/link';
-import Register from './Register';
-import MySearch from './Search';
-import FastOrder from './FastOrder';
 import TextArea from 'antd/lib/input/TextArea';
-import CommentModal from './CommentModal';
 import { RcFile } from 'antd/es/upload';
 import { MenuTheme } from 'antd/lib/menu';
 import { ButtonType } from 'antd/es/button';
@@ -104,26 +97,25 @@ const onFinish = async (values: any) => {
 
       <Layout className="site-layout">
       <div className="homepage_wrap">
-      <div
-             className='site-layout-background' 
-          >
-             <Menu className='menuItems' selectable={false} theme={theme} mode="horizontal">
+        <div className='site-layout-background'>
+            <Menu className='menuItems' selectable={false} theme={theme} mode="horizontal">
           <div className='logo'>
           <Menu.Item>
               <Switch onChange={changeTheme} checked={theme === 'dark'} unCheckedChildren={<BulbFilled />} checkedChildren={<BulbOutlined/>}/>  Тема
           </Menu.Item>
           </div>
           <div className='loggedIn'>          
-                </div>
-            </Menu>
           </div>
-        <Content style={{ margin: '0 16px' }}>
-          <div className="site-layout-background" 
-              style={{
-                margin: 5,
-                padding: 2,
-              }}>     
-<Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} justify='center'>
+            </Menu>
+        </div>
+      <Content style={{ margin: '0 16px' }}>
+        <div 
+          className="site-layout-background" 
+          style={{
+          margin: 5,
+          padding: 2,
+        }}>     
+      <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} justify='center'>
         
       <Form
         labelCol={{ span: 24 }}
@@ -160,63 +152,64 @@ const onFinish = async (values: any) => {
         </Form.Item>
         <Form.Item name="picture" label="Фото" valuePropName="file">
          <Upload
-  listType="picture-card"
-  className="avatar-uploader"
-  showUploadList={false}
-  beforeUpload={(file) => {
-    setFile(file);
-    return false;
-  }}
->
-  {file ? (
-    <img src={URL.createObjectURL(file)} alt="avatar" style={{ width: '100%' }} />
-  ) : (
-    uploadButton
-  )}
-</Upload>
+            listType="picture-card"
+            className="avatar-uploader"
+            showUploadList={false}
+            beforeUpload={(file) => {
+            setFile(file);
+              return false;
+      }}
+    >
+      {file ? (
+      <img src={URL.createObjectURL(file)} alt="avatar" style={{ width: '100%' }} />
+      ) : (
+        uploadButton
+      )}
+      </Upload>
 
-        </Form.Item>
-        <Form.Item
-                 noStyle
-                 shouldUpdate
-                 >
-                {({ getFieldsValue }) => {
-                  const { manufacturer, name, picture, discount, price } = getFieldsValue();
-                  const formIsComplete = !!manufacturer && !!name && !!discount && !!price ;
-                  return (
+      </Form.Item>
+      <Form.Item
+        noStyle
+        shouldUpdate
+        >
+          {({ getFieldsValue }) => {
+              const { manufacturer, name, picture, discount, price } = getFieldsValue();
+              const formIsComplete = !!manufacturer && !!name && !!discount && !!price ;
+              return (
                   <Button
                    type="primary"
                    htmlType="submit"
                    className="loginFormButton"
                    disabled={!formIsComplete}
-                   >
+                  >
                     Добавить
                   </Button>
               );
-            }}
-                </Form.Item>
+          }}
+      </Form.Item>
       </Form>
 
-</Row>
-      </div>
-              <FloatButton.BackTop />
-        </Content>
-        <Footer style={{ textAlign: 'center' }}>
-        Dixi Shoes ©2022 
-            <br/>
-            <div className="icons">
-            <Link href='https://www.instagram.com/dixi_zp/'>
-            <InstagramOutlined />
-            </Link>
-            &nbsp;
-            <Link href='https://m.facebook.com/profile.php?id=100063913516314'>
-            <FacebookOutlined href='/'/>
-            </Link>
+      </Row>
             </div>
-        </Footer>
-        </div>
-      </Layout>
-    </Layout>
-  );
-}
+              <FloatButton.BackTop />
+              </Content>
+              <Footer style={{ textAlign: 'center' }}>
+              Dixi Shoes ©2022 
+                  <br/>
+                  <div className="icons">
+                  <Link href='https://www.instagram.com/dixi_zp/'>
+                  <InstagramOutlined />
+                  </Link>
+                  &nbsp;
+                  <Link href='https://m.facebook.com/profile.php?id=100063913516314'>
+                  <FacebookOutlined href='/'/>
+                  </Link>
+                  </div>
+              </Footer>
+              </div>
+            </Layout>
+          </Layout>
+      );
+    }
+
 export default AddProduct;

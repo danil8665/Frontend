@@ -1,9 +1,5 @@
-import { Button, Card, Col, Image, Pagination, Rate, Row } from 'antd';
-import { ButtonType } from 'antd/lib/button';
-import { MenuTheme } from 'antd/lib/menu';
-import { FetchEventResult } from 'next/dist/server/web/types';
+import { Button, Card, Col, Image, Row } from 'antd';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 
 const { Meta } = Card;
 
