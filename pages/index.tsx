@@ -17,7 +17,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { ButtonType } from 'antd/lib/button';
 import Main from "./main";
-import Map from './map';
+import Map from './Map';
 import { NotificationPlacement } from 'antd/es/notification/interface';
 
 const { Header, Sider, Content } = Layout;

@@ -1,7 +1,7 @@
 import { Col, Row } from 'antd';
 import React, { FC } from 'react'
 import {useState, useEffect} from 'react'
-import MyCard from './card';
+import MyCard from './Card';
 
 
 interface Props {
