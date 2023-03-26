@@ -21,6 +21,7 @@ import { ButtonType } from 'antd/lib/button';
 import { NotificationPlacement } from 'antd/es/notification/interface';
 import FastOrder from '../fastorder';
 
+
 const { Header, Content, Footer, Sider } = Layout;
 
 const { Title, Text } = Typography;
