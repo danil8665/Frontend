@@ -11,14 +11,15 @@ import {
   PlusOutlined,
   LogoutOutlined
 } from '@ant-design/icons';
-import { Button, Card, FloatButton, Form, Image, MenuTheme, message, Modal, Radio, Rate, Row, Switch } from 'antd';
+import { Button, Card, FloatButton, Form, Image, MenuTheme, message, Modal, notification, Radio, Rate, Row, Switch } from 'antd';
 import { Breadcrumb, Layout, Menu, Popover } from 'antd';
 import Link from 'next/link';
 import TextArea from 'antd/lib/input/TextArea';
 import { Typography } from 'antd';
 import { useRouter } from 'next/router'
 import { ButtonType } from 'antd/lib/button';
-import FastOrder from '../FastOrder';
+import { NotificationPlacement } from 'antd/es/notification/interface';
+import FastOrder from '../fastorder';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -29,6 +30,16 @@ const { Title, Text } = Typography;
     }
 
 const About:React.FC<Props> = ({id}) => {
+  const [api, contextHolder2] = notification.useNotification();
+
+  const openNotification = (placement: NotificationPlacement) => {
+    api.info({
+      message: `Внимание`,
+      description:
+        'Это мы ещё не допилили :)',
+      placement,
+    });
+  };
 
   const exit = () => {
     messageApi
@@ -146,12 +157,18 @@ useEffect(() => {
       return (
         <>    
          {contextHolder}    
+         {contextHolder2}   
         <Layout className="layout" style={{ minHeight: '100vh' }}>
-        <Sider theme={theme} collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} breakpoint={'lg'} collapsedWidth={60}>
-          <Menu mode='vertical' theme={theme}> 
-            <Menu.Item key={1}><Link href={'/'}><HomeOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Главная &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Link></Menu.Item>
-          </Menu>    
-        </Sider>
+        <Sider         
+      theme={theme} collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} breakpoint={'lg'} collapsedWidth={60}>
+        <Menu mode='vertical'
+       theme={theme}
+        > 
+          <Menu.Item key={1}><Link href={'/'}><HomeOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Главная </Link></Menu.Item>
+          <Menu.Item key={2}><Link href={'/addproduct'}><PlusOutlined />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Добавить товар </Link></Menu.Item>
+          <Menu.Item key={3} onClick={() => openNotification('topRight')}><UserOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Профиль </Menu.Item>
+        </Menu>    
+      </Sider>
      <Layout className="site-layout">
      <div className="homepage_wrap">
      {/* <div

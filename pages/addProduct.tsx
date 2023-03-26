@@ -75,7 +75,12 @@ const onFinish = async (values: any) => {
     method: "POST",
     body: formData
   });
-  form.resetFields(); // сброс полей формы
+  form.resetFields(); 
+};
+
+const handleReset = () => {
+  setFile(null);
+  form.resetFields();
 };
 
   const [collapsed, setCollapsed] = useState(false);
@@ -83,13 +88,14 @@ const onFinish = async (values: any) => {
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Sider         
-      theme={'dark'} collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} breakpoint={'lg'} collapsedWidth={60}>
-        <Menu defaultSelectedKeys={['1']} mode='vertical'
-       theme={'dark'}
+      theme={theme} collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} breakpoint={'lg'} collapsedWidth={60}>
+        <Menu defaultSelectedKeys={['2']} mode='vertical'
+       theme={theme}
         > 
-          <Menu.Item key={1}><Link href={'/'}><HomeOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Главная &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Link></Menu.Item>
+          <Menu.Item key={1}><Link href={'/'}><HomeOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Главная </Link></Menu.Item>
+          <Menu.Item key={2}><Link href={'/addproduct'}><PlusOutlined />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Добавить товар </Link></Menu.Item>
+          <Menu.Item key={3}><UserOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Профиль </Menu.Item>
         </Menu>    
-       
       </Sider>
 
       <Layout className="site-layout">
@@ -120,6 +126,8 @@ const onFinish = async (values: any) => {
         onFinish={onFinish}
         form={form}
       >
+        <br/>
+        <br/>
         <Form.Item label="Добавление продукта">
         </Form.Item>
         <Form.Item 
@@ -164,6 +172,8 @@ const onFinish = async (values: any) => {
       )}
       </Upload>
 
+      <Button type="primary" onClick={handleReset}>Сбросить</Button>
+
       </Form.Item>
       <Form.Item
         noStyle
@@ -185,7 +195,7 @@ const onFinish = async (values: any) => {
           }}
       </Form.Item>
       </Form>
-
+      <FloatButton.BackTop />
       </Row>
             </div>
               <FloatButton.BackTop />

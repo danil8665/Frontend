@@ -10,19 +10,20 @@ import {
     PlusOutlined,
     LoginOutlined,
 } from '@ant-design/icons';
-import { Button, Carousel, Layout, Menu, MenuTheme, Switch, FloatButton, Row, Col, Image, message } from 'antd';
+import { Button, Carousel, Layout, Menu, MenuTheme, Switch, FloatButton, Row, Col, Image, message, notification } from 'antd';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 
 import { useRouter } from 'next/router';
 import { ButtonType } from 'antd/lib/button';
-import Map from './Map';
+import Map from './map';
+import { NotificationPlacement } from 'antd/es/notification/interface';
 
 const { Header, Sider, Content } = Layout;
 
 const Main = () => {
-
+    const [api, contextHolder2] = notification.useNotification();
     const [collapsed, setCollapsed] = useState(true);
 
     const [messageApi, contextHolder] = message.useMessage();
@@ -49,6 +50,15 @@ const Main = () => {
             })
             .then(() => message.success('Вы вышли из аккаунта', 3))
     };
+
+    const openNotification = (placement: NotificationPlacement) => {
+        api.info({
+          message: `Внимание`,
+          description:
+            'Сначала войдите в аккаунт',
+          placement,
+        });
+      };
 
     const onFinish = async (values: any) => {
         const response = await fetch(`https://blooming-journey-76324.herokuapp.com/auth/user`, {
@@ -84,6 +94,7 @@ const Main = () => {
     return (
         <>
             {contextHolder}
+            {contextHolder2}
             {/* {onFinish} */}
             <Layout className="layout" style={{ minHeight: '100vh' }}>
                <Sider
@@ -92,6 +103,7 @@ const Main = () => {
                           theme={theme}
                     >
                         <Menu.Item key={1}><Link href={'/'}><HomeOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Главная &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Link></Menu.Item>
+                        <Menu.Item key={3} onClick={() => openNotification('topRight')}><UserOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Профиль &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Menu.Item>
                     </Menu>
 
                 </Sider>

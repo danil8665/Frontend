@@ -8,15 +8,17 @@ import {
   BulbOutlined,
   BulbFilled,
   LogoutOutlined,
+  PlusOutlined,
 
 } from '@ant-design/icons';
-import { Button, Carousel, Layout, Menu, MenuTheme, Switch, FloatButton, Row, Col, Image, message } from 'antd';
+import { Button, Carousel, Layout, Menu, MenuTheme, Switch, FloatButton, Row, Col, Image, message, notification } from 'antd';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { ButtonType } from 'antd/lib/button';
 import Main from "./main";
-import Map from './Map';
+import Map from './map';
+import { NotificationPlacement } from 'antd/es/notification/interface';
 
 const { Header, Sider, Content } = Layout;
 
@@ -25,6 +27,7 @@ const Home = () => {
   const [collapsed, setCollapsed] = useState(true);
 
   const [messageApi, contextHolder] = message.useMessage();
+  const [api, contextHolder2] = notification.useNotification();
 
   const router = useRouter();
 
@@ -70,6 +73,15 @@ const Home = () => {
     }, 2500)
   }
 
+  const openNotification = (placement: NotificationPlacement) => {
+    api.info({
+      message: `Внимание`,
+      description:
+        'Это мы ещё не допилили :)',
+      placement,
+    });
+  };
+
   const { Header, Content, Footer, Sider } = Layout;
 
   const [item, setItem] = useState();
@@ -84,6 +96,7 @@ const Home = () => {
     return (
       <>
       {contextHolder}
+      {contextHolder2}
       {/* {onFinish} */}
       <Layout className="layout" style={{ minHeight: '100vh' }}>
       <Sider         
@@ -91,11 +104,10 @@ const Home = () => {
         <Menu defaultSelectedKeys={['1']} mode='vertical'
        theme={theme}
         > 
-          <Menu.Item key={1}><Link href={'/'}><HomeOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Главная &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Link></Menu.Item>
-          <Menu.Item key={2}><SearchOutlined />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Категории &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Menu.Item>
-          <Menu.Item key={3}><UserOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Профиль &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Menu.Item>
+          <Menu.Item key={1}><Link href={'/'}><HomeOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Главная </Link></Menu.Item>
+          <Menu.Item key={2}><Link href={'/addproduct'}><PlusOutlined />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Добавить товар </Link></Menu.Item>
+          <Menu.Item key={3} onClick={() => openNotification('topRight')}><UserOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Профиль </Menu.Item>
         </Menu>    
-       
       </Sider>
 
         <Layout className="site-layout">
