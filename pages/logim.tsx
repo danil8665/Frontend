@@ -66,7 +66,6 @@ const Login = () => {
     localStorage.setItem("token", token["token"]);
     const username = values;
     localStorage.setItem('username', username["username"]);
-    console.log('Success:', values);
 
     if ( response.status == 200 ) {
       success()
@@ -93,7 +92,6 @@ const Login = () => {
     const token = await response.json();
     localStorage.setItem("token", token["token"]);
     localStorage.setItem('username', username["username"]);
-    console.log('Success:', values);
     sucessRegister()
     setTimeout(() => {
       router.push('/');
@@ -101,7 +99,6 @@ const Login = () => {
   };
 
   const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo)
     setTimeout(() => {
       error()
     }, 2500)

@@ -183,7 +183,7 @@ const Home = () => {
       </>
 )
 
-  return (
+else return (
     <Main/>
   )
 }

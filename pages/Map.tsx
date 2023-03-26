@@ -21,9 +21,6 @@ export const Map:FC = () => {
                 setInstance(data);
             })
         }, []);
-    
-    
-    console.log(instance)
 
     const [posts, setPosts] = useState([])
     const defaultState = {

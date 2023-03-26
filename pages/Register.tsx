@@ -27,13 +27,7 @@ const Register: React.FC = () => {
         "Content-Type": "application/json"
       }
     })
-    console.log('Success:', values);
   };
-
-  const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
-  };
-
   return (
     <>
     </>
@@ -42,15 +36,3 @@ const Register: React.FC = () => {
 };
 
 export default Register;
-
-// const onFinish = async (values: any) => {
-//   const formData = new FormData();
-//   formData.append('file', file ? file : '');
-//   formData.append('product', JSON.stringify(values))
-
-//   await fetch('{API_URL}/upload', {
-//     method: "POST",
-//     body: formData
-//   });
-//   console.log('Success:', values);
-// };

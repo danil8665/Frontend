@@ -18,7 +18,6 @@ interface Props {
 }
 
 const MyCard: React.FC<Props> = ({instance}) => {
-  console.log(instance)
 
   return (
       <>

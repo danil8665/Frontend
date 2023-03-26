@@ -82,7 +82,6 @@ const onFinish = async (values: any) => {
     method: "POST",
     body: formData
   });
-  console.log('Success:', values);
   form.resetFields(); // сброс полей формы
 };
 

@@ -100,15 +100,12 @@ const About:React.FC<Props> = ({id}) => {
 };
 
 const onFinish = (values: any) => {
-  console.log('Success:', values);
 };
 
 const onFinishFailed = (errorInfo: any) => {
-  console.log('Failed:', errorInfo);
 };
 
 const router = useRouter()
-console.log(router, 'ROUTER')
 
 const [collapsed, setCollapsed] = useState(false);
 

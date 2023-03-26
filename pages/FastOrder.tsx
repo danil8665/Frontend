@@ -12,11 +12,11 @@ const FastOrder: React.FC = () => {
   };
 
   const onFinish = (values: any) => {
-    console.log('Success:', values);
+    
   };
 
   const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
+    
   };
 
   const [open, setOpen] = useState(false);
