@@ -19,8 +19,7 @@ import { Typography } from 'antd';
 import { useRouter } from 'next/router'
 import { ButtonType } from 'antd/lib/button';
 import { NotificationPlacement } from 'antd/es/notification/interface';
-import FastOrder from '../fastorder';
-
+import FastOrder from '../FastOrder';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -257,7 +256,7 @@ autoComplete="off"
  rules={[{ required: true, message: 'Напишите что-то' }]}
 >
 </Form.Item>
-<FastOrder />
+<FastOrder/>
 </Form>
 <div className='comments'>
 <h1>Напишите отзыв:</h1>
