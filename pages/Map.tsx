@@ -1,7 +1,8 @@
-import { Col, List, Pagination, Row, Table } from 'antd';
-import React, { FC, use } from 'react'
+import { Col, Row } from 'antd';
+import React, { FC } from 'react'
 import {useState, useEffect} from 'react'
 import MyCard from './Card';
+
 
 interface Props {
     props: any;
@@ -34,7 +35,7 @@ export const Map:FC = () => {
     return (
         <>
        <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} justify='center'>
-     
+       {instance.map((instance: any) => <MyCard key={1} instance={instance}/>) }  
         <Col span={5}>
             
         </Col>
@@ -47,7 +48,6 @@ export const Map:FC = () => {
         <Col span={5}>
         
         </Col>  
-        {instance.map((instance: any) => <MyCard key={1} instance={instance}/>) }  
        </Row>
         </>
     );
