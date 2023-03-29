@@ -165,7 +165,7 @@ useEffect(() => {
        theme={theme}
         > 
           <Menu.Item key={1}><Link href={'/'}><HomeOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Главная </Link></Menu.Item>
-          <Menu.Item key={2}><Link href={'/addproduct'}><PlusOutlined />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Добавить товар </Link></Menu.Item>
+          <Menu.Item key={2}><Link href={'/addProduct'}><PlusOutlined />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Добавить товар </Link></Menu.Item>
           <Menu.Item key={3} onClick={() => openNotification('topRight')}><UserOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Профиль </Menu.Item>
         </Menu>    
       </Sider>
@@ -196,7 +196,7 @@ useEffect(() => {
          </Breadcrumb>
 
 <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} justify='space-around'>
-
+<div className='card_style'>
        <Image
        preview={{ visible: false }}
        width={650}
@@ -204,7 +204,7 @@ useEffect(() => {
        src={`${instance.picture}`}
        onClick={() => setVisible(true)}
      />
-
+</div>
      <div style={{ display: 'none' }}>
       
        <Image.PreviewGroup preview={{ visible, onVisibleChange: (vis) => setVisible(vis) }}>
