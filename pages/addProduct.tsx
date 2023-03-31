@@ -94,7 +94,6 @@ const handleReset = () => {
         > 
           <Menu.Item key={1}><Link href={'/'}><HomeOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Главная </Link></Menu.Item>
           <Menu.Item key={2}><Link href={'/addProduct'}><PlusOutlined />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Добавить товар </Link></Menu.Item>
-          <Menu.Item key={3}><UserOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Профиль </Menu.Item>
         </Menu>    
       </Sider>
 
