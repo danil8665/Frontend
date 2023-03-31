@@ -103,7 +103,7 @@ const Main = () => {
                           theme={theme}
                     >
                         <Menu.Item key={1}><Link href={'/'}><HomeOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Главная &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Link></Menu.Item>
-                        <Menu.Item key={3} onClick={() => openNotification('topRight')}><UserOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Профиль &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Menu.Item>
+                        <Menu.Item key={3} onClick={() => openNotification('bottomRight')}><UserOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Профиль &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Menu.Item>
                     </Menu>
 
                 </Sider>
@@ -142,8 +142,8 @@ const Main = () => {
                         <Content
                             className="site-layout-background"
                             style={{
-                                margin: '24px 16px',
-                                padding: 24,
+                                
+                                padding: 10,
                             }}
                         >
                             <div className='wrap_home'>

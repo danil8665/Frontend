@@ -133,7 +133,7 @@ const Home = () => {
               className="site-layout-background"
               style={{
                 
-                padding: 15,
+                padding: 10,
               }}
           >
             <div className='wrap_home'>

@@ -166,7 +166,7 @@ useEffect(() => {
         > 
           <Menu.Item key={1}><Link href={'/'}><HomeOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Главная </Link></Menu.Item>
           <Menu.Item key={2}><Link href={'/addProduct'}><PlusOutlined />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Добавить товар </Link></Menu.Item>
-          <Menu.Item key={3} onClick={() => openNotification('topRight')}><UserOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Профиль </Menu.Item>
+          <Menu.Item key={3} onClick={() => openNotification('bottomRight')}><UserOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Профиль </Menu.Item>
         </Menu>    
       </Sider>
      <Layout className="site-layout">
@@ -196,11 +196,11 @@ useEffect(() => {
          </Breadcrumb>
 
 <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} justify='space-around'>
-<div className='card_style'>
+<div className='image_card_style'>
        <Image
        preview={{ visible: false }}
-       width={650}
-       height={650}
+       width={610}
+       height={610}
        src={`${instance.picture}`}
        onClick={() => setVisible(true)}
      />
@@ -328,13 +328,12 @@ autoComplete="off"
     <Layout className="layout" style={{ minHeight: '100vh' }}>
          <Sider         
  theme={theme} collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} breakpoint={'lg'} collapsedWidth={60}>
-  <Menu defaultSelectedKeys={['1']} mode='vertical'
+  <Menu mode='vertical'
   theme={theme}
   > 
 
     <Menu.Item key={1}><Link href={'/'}><HomeOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Главная &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Link></Menu.Item>
-    <Menu.Item key={2}><SearchOutlined />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Категории &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Menu.Item>
-    <Menu.Item key={3}><UserOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Профиль &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Menu.Item>
+    <Menu.Item key={3} onClick={() => openNotification('bottomRight')}><UserOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Профиль </Menu.Item>
   </Menu>    
  
 </Sider>
@@ -367,47 +366,45 @@ autoComplete="off"
                 </div>
             </Menu>
 
-        <Content style={{ margin: '0 16px' }}>
-          <Breadcrumb style={{ margin: '16px 0' }}>
-            <Breadcrumb.Item>{`${instance?.manufacturer}`}</Breadcrumb.Item>
-            <Breadcrumb.Item>{`${instance?.name}`}</Breadcrumb.Item>
-          </Breadcrumb>
-          <div className="site-layout-background" 
-              style={{
-                margin: 5,
-                padding: 2,
-              }}>     
-      <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} justify='space-around'>
-      <Image
+            <Content style={{ margin: '0 16px'}}>
+         <Breadcrumb style={{ margin: '16px 0' }}>
+           <Breadcrumb.Item>{`${instance?.manufacturer}`}</Breadcrumb.Item>
+           <Breadcrumb.Item>{`${instance?.name}`}</Breadcrumb.Item>
+         </Breadcrumb>
+
+<Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} justify='space-around'>
+<div className='image_card_style'>
+       <Image
        preview={{ visible: false }}
-       width={650}
-       height={650}
+       width={700}
+       height={700}
        src={`${instance.picture}`}
        onClick={() => setVisible(true)}
      />
-      <div style={{ display: 'none' }}>
-        <Image.PreviewGroup preview={{ visible, onVisibleChange: (vis) => setVisible(vis) }}>
-          <Image src={`${instance.picture}`} />
-          <Image src="2.jpg" />
-          <Image src="3.jpg" />
-        </Image.PreviewGroup>
-        </div>
+</div>
+     <div style={{ display: 'none' }}>
+      
+       <Image.PreviewGroup preview={{ visible, onVisibleChange: (vis) => setVisible(vis) }}>
+         <Image src={`${instance.picture}`} />
+       </Image.PreviewGroup>
+       </div>
 
 
-              <div className="about_description">
-            <Card bordered={false}>
+
+             <div className="about_description">
+           <Card bordered={false}>
 
 <h1>Размер</h1>
 
 <Radio.Group name='size' defaultValue="a" buttonStyle="solid" style={{ marginTop: 16 }}>
-  <Radio.Button value="a">36</Radio.Button>
-   <Radio.Button value="b" disabled>
-    37
-  </Radio.Button>
-  <Radio.Button value="c">38</Radio.Button>
-  <Radio.Button value="d">39</Radio.Button>
-  <Radio.Button value="e">40</Radio.Button>
-  <Radio.Button value="f">41</Radio.Button>
+ <Radio.Button value="a">36</Radio.Button>
+  <Radio.Button value="b" disabled>
+   37
+ </Radio.Button>
+ <Radio.Button value="c">38</Radio.Button>
+ <Radio.Button value="d">39</Radio.Button>
+ <Radio.Button value="e">40</Radio.Button>
+ <Radio.Button value="f">41</Radio.Button>
 </Radio.Group>
 <br/>
 <br/>
@@ -417,12 +414,12 @@ autoComplete="off"
 <p className='discount'>{`${instance.discount}`}</p>
 </div>
 <h1>Оценить(по желанию)</h1>
-  <Rate defaultValue={4}/>
+ <Rate defaultValue={0}/>
 <Form>
-  <Form.Item>
-  <Title level={4}>Описание:</Title>
-  <div className='modelDescription'>{`${instance.name}`}</div>
-  </Form.Item>
+ <Form.Item>
+ <Title level={4}>Описание:</Title>
+ <div className='modelDescription'>{`${instance.name}`}</div>
+ </Form.Item>
 </Form>
 <Form
 name='basic'
@@ -432,11 +429,11 @@ initialValues={{ remember: true }}
 autoComplete="off"
 >
 <Form.Item
-  name="comment"
-  rules={[{ required: true, message: 'Напишите что-то' }]}
+ name="comment"
+ rules={[{ required: true, message: 'Напишите что-то' }]}
 >
 </Form.Item>
-<FastOrder />
+<FastOrder/>
 </Form>
 <div className='comments'>
 <h1>Напишите отзыв:</h1>
@@ -448,33 +445,33 @@ initialValues={{ remember: true }}
 autoComplete="off"
 >
 <Form.Item
-  name="comment"
-  rules={[{ required: true, message: 'Напишите что-то' }]}
+ name="comment"
+ rules={[{ required: true, message: 'Напишите что-то' }]}
 >
-  <TextArea            
-    rows={6}
-  >
-  </TextArea>
+ <TextArea            
+   rows={6}
+ >
+ </TextArea>
 </Form.Item>
 <Form.Item
-    shouldUpdate
-    >
-    {({ getFieldsValue }) => {
-    const { comment } = getFieldsValue();
-    const formIsComplete = !!comment;
-  return (
-    <div className='commentButton'>
-  <Button
-    onClick={countDown} 
-    type="primary"
-    htmlType="submit"
-    className="loginFormButton"
-    disabled={!formIsComplete}
-  >
-    Отправить
-  </Button>
-    </div>
-  );
+   shouldUpdate
+   >
+   {({ getFieldsValue }) => {
+   const { comment } = getFieldsValue();
+   const formIsComplete = !!comment;
+ return (
+   <div className='commentButton'>
+ <Button
+   onClick={countDown} 
+   type="primary"
+   htmlType="submit"
+   className="loginFormButton"
+   disabled={!formIsComplete}
+ >
+   Отправить
+ </Button>
+   </div>
+ );
 }}
 </Form.Item>
 </Form>
@@ -482,9 +479,9 @@ autoComplete="off"
 </Card>
 </div>
 </Row>
-      </div>
-              <FloatButton.BackTop />
-        </Content>
+
+  <FloatButton.BackTop />
+  </Content>
         <Footer style={{ textAlign: 'center' }}>
         Dixi Shoes ©2022 
             <br/>

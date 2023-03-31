@@ -98,7 +98,7 @@ const handleReset = () => {
       </Sider>
 
       <Layout className="site-layout">
-      <div className="homepage_wrap">
+      <div className="addprodct_wrap">
         <div className='site-layout-background'>
             <Menu className='menuItems' selectable={false} theme={theme} mode="horizontal">
           <div className='logo'>
@@ -110,7 +110,7 @@ const handleReset = () => {
           </div>
             </Menu>
         </div>
-      <Content style={{ margin: '0 16px' }}>
+      <Content>
         <div 
           className="site-layout-background" 
           style={{

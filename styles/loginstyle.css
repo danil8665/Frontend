@@ -88,7 +88,7 @@
     width: 100%;
   }
 
-  @media screen and (max-width: 623px) {
+  @media screen and (max-width: 768px) {
     .login-box {
       flex-direction: column;
       box-shadow: none;

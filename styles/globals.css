@@ -224,8 +224,12 @@ body {
 
 @media (max-width: 768px) {
 
+  .image_card_style {
+    zoom: 50%;
+  }
+
   .card_style {
-    zoom: 50%
+    zoom: 54%;
   }
 
   .previewImage {
@@ -233,7 +237,7 @@ body {
   }
 
   .homepage_wrap {
-    zoom: 90%;
+    zoom: 85%;
   }
 
 }
