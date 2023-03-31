@@ -225,7 +225,7 @@ body {
 @media (max-width: 768px) {
 
   .card_style {
-    zoom: 60%
+    zoom: 50%
   }
 
   .previewImage {
@@ -233,7 +233,7 @@ body {
   }
 
   .homepage_wrap {
-    zoom: 85%;
+    zoom: 90%;
   }
 
 }
