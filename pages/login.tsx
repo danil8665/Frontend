@@ -1,10 +1,12 @@
 import { Alert, Button, Checkbox, Col, Divider, Form, Input, Row, Tabs, message } from 'antd'
 import Router, { useRouter } from 'next/router';
 import { type } from 'os';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 
 const Login = () => {
+
+  const dev = "https://blooming-journey-76324.herokuapp.com/"
 
   let secondsToGo = 5;
 
@@ -61,11 +63,13 @@ const Login = () => {
         "Content-Type": "application/json"
       }  
     }
-    )
+  )
+
     const token = await response.json();
     localStorage.setItem("token", token["token"]);
     const username = values;
     localStorage.setItem('username', username["username"]);
+    console.log(token)
 
     if ( response.status == 200 ) {
       success()
