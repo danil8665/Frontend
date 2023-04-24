@@ -66,10 +66,9 @@ const Login = () => {
   )
 
     const token = await response.json();
-    localStorage.setItem("token", token["token"]);
     const username = values;
+    localStorage.setItem("token", token["token"]);
     localStorage.setItem('username', username["username"]);
-    console.log(token)
 
     if ( response.status == 200 ) {
       success()

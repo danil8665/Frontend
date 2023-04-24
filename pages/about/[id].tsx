@@ -11,7 +11,7 @@ import {
   PlusOutlined,
   LogoutOutlined
 } from '@ant-design/icons';
-import { Button, Card, FloatButton, Form, Image, MenuTheme, message, Modal, notification, Radio, Rate, Row, Switch } from 'antd';
+import { Button, Card, FloatButton, Form, Image, MenuTheme, message, Modal, notification, Radio, Rate, Row, Skeleton, Switch } from 'antd';
 import { Breadcrumb, Layout, Menu, Popover } from 'antd';
 import Link from 'next/link';
 import TextArea from 'antd/lib/input/TextArea';
@@ -376,8 +376,8 @@ autoComplete="off"
 <div className='image_card_style'>
        <Image
        preview={{ visible: false }}
-       width={700}
-       height={700}
+       width={610}
+       height={610}
        src={`${instance.picture}`}
        onClick={() => setVisible(true)}
      />

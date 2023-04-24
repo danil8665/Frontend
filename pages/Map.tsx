@@ -56,3 +56,7 @@ export const Map:FC = () => {
 
 export default Map;
 
+
+//  if (typeof localStorage === "undefined")
+  
+//const username = localStorage.getItem("username");

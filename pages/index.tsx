@@ -93,6 +93,12 @@ const Home = () => {
        setItem(localStorage.token)
       
   }, []);;
+
+  const [username, setUsername] = useState();
+
+  useEffect (() => {
+       setUsername(localStorage.username)
+  }, []);;
   
     if (item)
     return (
@@ -107,7 +113,6 @@ const Home = () => {
        theme={theme}
         > 
           <Menu.Item key={1}><Link href={'/'}><HomeOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Главная </Link></Menu.Item>
-          <Menu.Item key={2}><Link href={'/addProduct'}><PlusOutlined />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Добавить товар </Link></Menu.Item>
           <Menu.Item key={3} onClick={() => openNotification('bottomRight')}><UserOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Профиль </Menu.Item>
         </Menu>    
       </Sider>
@@ -186,8 +191,9 @@ const Home = () => {
 )
 
 else return (
-    <Main/>
-  )
+  <Main/>
+)
+  
 }
 
 export default Home;
