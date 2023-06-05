@@ -177,7 +177,7 @@ useEffect(() => {
              <Menu className='menuItems' selectable={false} theme={theme} mode="horizontal">
           <div className='logo'>
           <Menu.Item>
-              <Switch onChange={changeTheme} checked={theme === 'dark'} unCheckedChildren={<BulbFilled />} checkedChildren={<BulbOutlined/>}/>  Тема
+              {/* <Switch onChange={changeTheme} checked={theme === 'dark'} unCheckedChildren={<BulbFilled />} checkedChildren={<BulbOutlined/>}/>  Тема */}
           </Menu.Item>
           </div>
           <div className='loggedIn'>
