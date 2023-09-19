@@ -407,7 +407,7 @@ const About: React.FC<Props> = ({ id }) => {
             mode="horizontal"
           >
             <div className="logo">
-              <Menu.Item>
+              {/* <Menu.Item>
                 <Switch
                   onChange={changeTheme}
                   checked={theme === "dark"}
@@ -415,7 +415,7 @@ const About: React.FC<Props> = ({ id }) => {
                   checkedChildren={<BulbOutlined />}
                 />{" "}
                 Тема
-              </Menu.Item>
+              </Menu.Item> */}
             </div>
             <div className="login">
               <Menu.Item>
