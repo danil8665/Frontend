@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap");
 
 html,
 body {
@@ -9,7 +9,7 @@ body {
 }
 
 * {
-  box-sizing:content-box;
+  box-sizing: content-box;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -57,7 +57,7 @@ body {
 .about_logo {
   display: flex;
   justify-content: left;
-  font-family: 'Dancing Script', cursive;
+  font-family: "Dancing Script", cursive;
 }
 
 .about_content {
@@ -208,7 +208,6 @@ body {
   overflow: hidden;
 }
 
-
 .layout {
   height: auto;
   width: auto;
@@ -223,7 +222,6 @@ body {
 }
 
 @media (max-width: 768px) {
-
   .image_card_style {
     zoom: 50%;
   }
@@ -239,15 +237,12 @@ body {
   .homepage_wrap {
     zoom: 85%;
   }
-
 }
 
 @media (max-width: 1320px) {
-
   .modal_wrap {
     zoom: 40%;
   }
-
 }
 
 .lds-dual-ring {

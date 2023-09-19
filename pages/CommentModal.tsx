@@ -1,12 +1,11 @@
-import React from 'react';
-import { Button, Modal } from 'antd';
+import React from "react";
+import { Button, Modal } from "antd";
 
 const countDown = () => {
-
   let secondsToGo = 5;
 
   const modal = Modal.success({
-    title: 'Спасибо что оставили отзыв!',
+    title: "Спасибо что оставили отзыв!",
     content: `Это окно закроется через ${secondsToGo} секунд.`,
   });
 
@@ -23,9 +22,10 @@ const countDown = () => {
   }, secondsToGo * 1000);
 };
 
-const CommentModal: React.FC = () => 
-
-<Button type='primary' htmlType='submit' onClick={countDown}>Отправить</Button>;
-
+const CommentModal: React.FC = () => (
+  <Button type="primary" htmlType="submit" onClick={countDown}>
+    Отправить
+  </Button>
+);
 
 export default CommentModal;
