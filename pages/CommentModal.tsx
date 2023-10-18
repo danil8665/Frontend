@@ -5,14 +5,14 @@ const countDown = () => {
   let secondsToGo = 5;
 
   const modal = Modal.success({
-    title: "Спасибо что оставили отзыв!",
-    content: `Это окно закроется через ${secondsToGo} секунд.`,
+    title: "Дякуємо що залишили відгук!",
+    content: `Це вікно закриється через ${secondsToGo} секунд.`,
   });
 
   const timer = setInterval(() => {
     secondsToGo -= 1;
     modal.update({
-      content: `Это окно закроется через ${secondsToGo} секунд.`,
+      content: `Це вікно закриється через ${secondsToGo} секунд.`,
     });
   }, 1000);
 
@@ -24,7 +24,7 @@ const countDown = () => {
 
 const CommentModal: React.FC = () => (
   <Button type="primary" htmlType="submit" onClick={countDown}>
-    Отправить
+    Відправити
   </Button>
 );
 

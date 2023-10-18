@@ -3,13 +3,7 @@ import React, { FC } from "react";
 import { useState, useEffect } from "react";
 import MyCard from "./Card";
 
-interface Props {
-  props: any;
-}
-
 export const Map: FC = () => {
-  const [loading, setLoading] = useState(false);
-
   const [instance, setInstance] = useState([]);
   useEffect(() => {
     fetch(`https://backend-dixi-00461a80fa26.herokuapp.com/products`)
@@ -20,15 +14,6 @@ export const Map: FC = () => {
         setInstance(data);
       });
   }, []);
-
-  const [posts, setPosts] = useState([]);
-  const defaultState = {
-    items: [],
-    isFetching: true,
-    pageSize: 4,
-    perPage: 10,
-    totalCount: 50,
-  };
 
   return (
     <>
@@ -46,7 +31,3 @@ export const Map: FC = () => {
 };
 
 export default Map;
-
-//  if (typeof localStorage === "undefined")
-
-//const username = localStorage.getItem("username");

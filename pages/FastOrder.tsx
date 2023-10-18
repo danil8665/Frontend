@@ -42,7 +42,7 @@ const FastOrder: React.FC = () => {
     <>
       {contextHolder}
       <Button type="primary" onClick={showModal}>
-        Быстрый заказ
+        Швидке замовлення
       </Button>
       <div className="modal_wrap">
         <Modal
@@ -65,20 +65,20 @@ const FastOrder: React.FC = () => {
             autoComplete="off"
           >
             <Form.Item
-              label="ФИО"
+              label="ПІБ"
               name="name"
-              rules={[{ required: true, message: "Пожалуйста введите ФИО" }]}
+              rules={[{ required: true, message: "Будь-ласка введіть ПІБ" }]}
             >
               <Input />
             </Form.Item>
 
             <Form.Item
-              label="Номер телефона"
+              label="Номер телефону"
               name="number"
               rules={[
                 {
                   required: true,
-                  message: "Пожалуйста введите номер телефона",
+                  message: "Будь-ласка введіть номер телефону",
                 },
               ]}
             >
@@ -98,7 +98,7 @@ const FastOrder: React.FC = () => {
                       className="loginFormButton"
                       disabled={!formIsComplete}
                     >
-                      Заказать
+                      Замовити
                     </Button>
                   </div>
                 );

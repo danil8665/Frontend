@@ -3,12 +3,8 @@ import {
   UserOutlined,
   InstagramOutlined,
   FacebookOutlined,
-  SearchOutlined,
   LoadingOutlined,
-  BulbOutlined,
-  BulbFilled,
   LogoutOutlined,
-  PlusOutlined,
 } from "@ant-design/icons";
 import {
   Button,
@@ -16,7 +12,6 @@ import {
   Layout,
   Menu,
   MenuTheme,
-  Switch,
   FloatButton,
   Row,
   Col,
@@ -32,8 +27,6 @@ import Main from "./main";
 import Map from "./Map";
 import { NotificationPlacement } from "antd/es/notification/interface";
 
-const { Header, Sider, Content } = Layout;
-
 const Home = () => {
   const [collapsed, setCollapsed] = useState(true);
 
@@ -45,35 +38,14 @@ const Home = () => {
   const [theme, setTheme] = useState<MenuTheme>("dark");
   const [type, setType] = useState<ButtonType>("primary");
 
-  const changeTheme = (value: boolean) => {
-    localStorage.setItem("theme", theme);
-    setTheme(value ? "dark" : "light");
-    setType(value ? "primary" : "default");
-  };
-
   const exit = () => {
     messageApi
       .open({
         type: "loading",
-        content: "Выход",
+        content: "Вихід",
         duration: 1,
       })
-      .then(() => message.success("Вы вышли из аккаунта", 3));
-  };
-
-  const onFinish = async (values: any) => {
-    const response = await fetch(
-      `https://backend-dixi-00461a80fa26.herokuapp.com/auth/user`,
-      {
-        method: "GET",
-        body: JSON.stringify(values),
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      }
-    );
+      .then(() => message.success("Вы вийшли з акаунту", 3));
   };
 
   const logOut = () => {
@@ -88,13 +60,13 @@ const Home = () => {
 
   const openNotification = (placement: NotificationPlacement) => {
     api.info({
-      message: `Внимание`,
-      description: "Это мы ещё не допилили :)",
+      message: `Увага`,
+      description: "Це ми ще не доробили :)",
       placement,
     });
   };
 
-  const { Header, Content, Footer, Sider } = Layout;
+  const { Content, Footer, Sider } = Layout;
 
   const [item, setItem] = useState();
 
@@ -113,7 +85,6 @@ const Home = () => {
       <>
         {contextHolder}
         {contextHolder2}
-        {/* {onFinish} */}
         <Layout className="layout" style={{ minHeight: "100vh" }}>
           <Sider
             theme={theme}
@@ -126,7 +97,7 @@ const Home = () => {
               <Menu.Item key={1}>
                 <Link href={"/"}>
                   <HomeOutlined />
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Главная{" "}
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Головна{" "}
                 </Link>
               </Menu.Item>
               <Menu.Item
@@ -134,7 +105,7 @@ const Home = () => {
                 onClick={() => openNotification("bottomRight")}
               >
                 <UserOutlined />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Профиль{" "}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Профіль{" "}
               </Menu.Item>
             </Menu>
           </Sider>
@@ -148,11 +119,6 @@ const Home = () => {
                   theme={theme}
                   mode="horizontal"
                 >
-                  <div className="logo">
-                    <Menu.Item>
-                      {/* <Switch onChange={changeTheme} checked={theme === 'dark'} unCheckedChildren={<BulbFilled />} checkedChildren={<BulbOutlined/>}/>  Тема */}
-                    </Menu.Item>
-                  </div>
                   <div className="loggedIn">
                     <Menu.Item>
                       {`${localStorage.getItem("username")}`}&nbsp;&nbsp;&nbsp;
@@ -162,7 +128,7 @@ const Home = () => {
                         onClick={logOut}
                         icon={<LogoutOutlined />}
                       >
-                        Выйти
+                        Вийти
                       </Button>
                     </Menu.Item>
                   </div>
@@ -211,10 +177,6 @@ const Home = () => {
                   <Link href="https://m.facebook.com/profile.php?id=100063913516314">
                     <FacebookOutlined href="/" />
                   </Link>
-                  <div className="qrCodes">
-                    {/* <QRCode size={200} icon={'instagram.svg.webp'} value="https://www.instagram.com/dixi_zp/" />
-            <QRCode value="https://www.instagram.com/dixi_zp/" /> */}
-                  </div>
                 </div>
               </Footer>
             </div>

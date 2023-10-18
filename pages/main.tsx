@@ -3,10 +3,7 @@ import {
   UserOutlined,
   InstagramOutlined,
   FacebookOutlined,
-  SearchOutlined,
   LoadingOutlined,
-  BulbOutlined,
-  BulbFilled,
   PlusOutlined,
   LoginOutlined,
 } from "@ant-design/icons";
@@ -16,7 +13,6 @@ import {
   Layout,
   Menu,
   MenuTheme,
-  Switch,
   FloatButton,
   Row,
   Col,
@@ -26,8 +22,6 @@ import {
 } from "antd";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-
-import { useRouter } from "next/router";
 import { ButtonType } from "antd/lib/button";
 import Map from "./Map";
 import { NotificationPlacement } from "antd/es/notification/interface";
@@ -40,26 +34,8 @@ const Main = () => {
 
   const [messageApi, contextHolder] = message.useMessage();
 
-  const router = useRouter();
-
   const [theme, setTheme] = useState<MenuTheme>("dark");
   const [type, setType] = useState<ButtonType>("primary");
-
-  const changeTheme = (value: boolean) => {
-    localStorage.setItem("theme", theme);
-    setTheme(value ? "dark" : "light");
-    setType(value ? "primary" : "default");
-  };
-
-  const exit = () => {
-    messageApi
-      .open({
-        type: "loading",
-        content: "Выход",
-        duration: 1,
-      })
-      .then(() => message.success("Вы вышли из аккаунта", 3));
-  };
 
   const openNotification = (placement: NotificationPlacement) => {
     api.info({
@@ -69,32 +45,7 @@ const Main = () => {
     });
   };
 
-  const onFinish = async (values: any) => {
-    const response = await fetch(
-      `https://backend-dixi-00461a80fa26.herokuapp.com/auth/user`,
-      {
-        method: "GET",
-        body: JSON.stringify(values),
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      }
-    );
-  };
-
-  const logOut = () => {
-    exit();
-    localStorage.removeItem("token");
-    localStorage.removeItem("username");
-    localStorage.removeItem("nextauth.message");
-    setTimeout(() => {
-      router.reload();
-    }, 2500);
-  };
-
-  const { Header, Content, Footer, Sider } = Layout;
+  const { Content, Footer, Sider } = Layout;
 
   const [item, setItem] = useState();
 
@@ -106,7 +57,6 @@ const Main = () => {
     <>
       {contextHolder}
       {contextHolder2}
-      {/* {onFinish} */}
       <Layout className="layout" style={{ minHeight: "100vh" }}>
         <Sider
           theme={theme}
@@ -119,13 +69,13 @@ const Main = () => {
             <Menu.Item key={1}>
               <Link href={"/"}>
                 <HomeOutlined />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Главная
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Головна
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               </Link>
             </Menu.Item>
             <Menu.Item key={3} onClick={() => openNotification("bottomRight")}>
               <UserOutlined />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Профиль
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Профіль
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </Menu.Item>
           </Menu>
@@ -140,16 +90,11 @@ const Main = () => {
                 theme={theme}
                 mode="horizontal"
               >
-                <div className="logo">
-                  <Menu.Item>
-                    {/* <Switch onChange={changeTheme} checked={theme === 'dark'} unCheckedChildren={<BulbFilled />} checkedChildren={<BulbOutlined/>}/>  Тема */}
-                  </Menu.Item>
-                </div>
                 <div className="login">
                   <Menu.Item>
                     <Link href={"/login"}>
                       <Button type={type} icon={<LoginOutlined />}>
-                        Вход
+                        Вхід
                       </Button>
                     </Link>
                   </Menu.Item>
@@ -161,7 +106,7 @@ const Main = () => {
                         icon={<PlusOutlined />}
                         style={{ marginLeft: -20 }}
                       >
-                        Регистрация
+                        Реєстрація
                       </Button>
                     </Link>
                   </Menu.Item>

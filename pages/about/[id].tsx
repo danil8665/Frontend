@@ -202,9 +202,6 @@ const About: React.FC<Props> = ({ id }) => {
             </Sider>
             <Layout className="site-layout">
               <div className="homepage_wrap">
-                {/* <div
-             className='site-layout-background' 
-          > */}
                 <Menu
                   className="menuItems"
                   selectable={false}
@@ -212,9 +209,7 @@ const About: React.FC<Props> = ({ id }) => {
                   mode="horizontal"
                 >
                   <div className="logo">
-                    <Menu.Item>
-                      {/* <Switch onChange={changeTheme} checked={theme === 'dark'} unCheckedChildren={<BulbFilled />} checkedChildren={<BulbOutlined/>}/>  Тема */}
-                    </Menu.Item>
+                    <Menu.Item></Menu.Item>
                   </div>
                   <div className="loggedIn">
                     <Menu.Item>
@@ -406,17 +401,7 @@ const About: React.FC<Props> = ({ id }) => {
             theme={theme}
             mode="horizontal"
           >
-            <div className="logo">
-              {/* <Menu.Item>
-                <Switch
-                  onChange={changeTheme}
-                  checked={theme === "dark"}
-                  unCheckedChildren={<BulbFilled />}
-                  checkedChildren={<BulbOutlined />}
-                />{" "}
-                Тема
-              </Menu.Item> */}
-            </div>
+            <div className="logo"></div>
             <div className="login">
               <Menu.Item>
                 <Link href={"/login"}>

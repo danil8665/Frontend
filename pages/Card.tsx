@@ -23,16 +23,13 @@ const MyCard: React.FC<Props> = ({ instance }) => {
               <div className="img_card">
                 <Image width={250} src={`${instance?.picture}`} />
               </div>
-              <Meta
-                title={`${instance?.manufacturer}`}
-                // description={`${instance.name}`}
-              />
+              <Meta title={`${instance?.manufacturer}`} />
               <h3>{`${instance?.name}`}</h3>
-              <div className="cardPrice">Цена: {`${instance?.price}`} грн</div>
+              <div className="cardPrice">Ціна: {`${instance?.price}`} грн</div>
               <br />
               <br />
               <Link href="/api/about/[id].tsx" as={`/about/${instance?._id}`}>
-                <Button type={"primary"}>Подробнее</Button>
+                <Button type={"primary"}>Детальніше</Button>
               </Link>
             </Card>
           </div>

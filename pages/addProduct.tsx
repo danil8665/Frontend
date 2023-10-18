@@ -103,13 +103,13 @@ const AddProduct: React.FC = () => {
           <Menu.Item key={1}>
             <Link href={"/"}>
               <HomeOutlined />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Главная{" "}
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Головна{" "}
             </Link>
           </Menu.Item>
           <Menu.Item key={2}>
             <Link href={"/addProduct"}>
               <PlusOutlined />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Добавить товар{" "}
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Додати товар{" "}
             </Link>
           </Menu.Item>
         </Menu>
@@ -124,11 +124,6 @@ const AddProduct: React.FC = () => {
               theme={theme}
               mode="horizontal"
             >
-              <div className="logo">
-                <Menu.Item>
-                  {/* <Switch onChange={changeTheme} checked={theme === 'dark'} unCheckedChildren={<BulbFilled />} checkedChildren={<BulbOutlined/>}/>  Тема */}
-                </Menu.Item>
-              </div>
               <div className="loggedIn"></div>
             </Menu>
           </div>
@@ -187,7 +182,7 @@ const AddProduct: React.FC = () => {
                     </Upload>
 
                     <Button type="primary" onClick={handleReset}>
-                      Сбросить
+                      Скинути
                     </Button>
                   </Form.Item>
                   <Form.Item noStyle shouldUpdate>

@@ -35,20 +35,20 @@ const Login = () => {
     messageApi
       .open({
         type: "loading",
-        content: "Вход",
+        content: "Вхід",
         duration: 1,
       })
-      .then(() => message.success("Вход выполнен успешно", 3));
+      .then(() => message.success("Вхід пройшов успішно", 3));
   };
 
   const sucessRegister = () => {
     messageApi
       .open({
         type: "loading",
-        content: "Регистрация",
+        content: "Реєстрація",
         duration: 1.5,
       })
-      .then(() => message.success("Регистрация выполнена успешно", 3));
+      .then(() => message.success("Реєстрація пройшла успішно", 3));
   };
 
   const error = () => {
@@ -58,7 +58,7 @@ const Login = () => {
         content: "Вход",
         duration: 1.5,
       })
-      .then(() => message.error("Неверное имя аккаунта или пароль", 3));
+      .then(() => message.error("Невірне ім'я акаунту чи пароль", 3));
   };
 
   const onFinish = async (values: any) => {
@@ -125,13 +125,13 @@ const Login = () => {
       <div className="loginPage">
         <div className="loginBox">
           <div className="loginForm">
-            <p className="formTitle">Добро пожаловать</p>
-            <p className="form">Пожалуйста войдите или зарегистрируйтесь</p>
+            <p className="formTitle">Ласкаво просимо</p>
+            <p className="form">Будь ласка увійдіть або зареєструйтесь</p>
             <Tabs
               defaultActiveKey="1"
               items={[
                 {
-                  label: "Регистрация",
+                  label: "Реєстрація",
                   key: "1",
                   children: (
                     <Form
@@ -144,11 +144,11 @@ const Login = () => {
                         rules={[
                           {
                             required: true,
-                            message: "Пожалуйста введите логин",
+                            message: "Будь-ласка введіьт логін",
                           },
                         ]}
                       >
-                        <Input placeholder="Логин" size="large" />
+                        <Input placeholder="Логін" size="large" />
                       </Form.Item>
 
                       <Form.Item
@@ -156,7 +156,7 @@ const Login = () => {
                         rules={[
                           {
                             required: true,
-                            message: "Пожалуйста введите пароль",
+                            message: "Будь-ласка введіть пароль",
                           },
                         ]}
                       >
@@ -164,7 +164,7 @@ const Login = () => {
                       </Form.Item>
 
                       <Form.Item name="remember" valuePropName="checked">
-                        <Checkbox>Запомнить меня</Checkbox>
+                        <Checkbox>Запам'ятати мене</Checkbox>
                       </Form.Item>
 
                       <Form.Item noStyle shouldUpdate>
@@ -180,7 +180,7 @@ const Login = () => {
                               onClick={handleOk}
                               loading={loading}
                             >
-                              Регистрация
+                              Реєстрація
                             </Button>
                           );
                         }}
@@ -202,11 +202,11 @@ const Login = () => {
                         rules={[
                           {
                             required: true,
-                            message: "Пожалуйста введите логин",
+                            message: "Будь-ласка введіть логін",
                           },
                         ]}
                       >
-                        <Input size="large" placeholder="Логин" />
+                        <Input size="large" placeholder="Логін" />
                       </Form.Item>
 
                       <Form.Item
@@ -214,7 +214,7 @@ const Login = () => {
                         rules={[
                           {
                             required: true,
-                            message: "Пожалуйста введите пароль",
+                            message: "Будь-ласка введіть пароль",
                           },
                         ]}
                       >
@@ -222,7 +222,7 @@ const Login = () => {
                       </Form.Item>
 
                       <Form.Item name="remember" valuePropName="checked">
-                        <Checkbox>Запомнить меня</Checkbox>
+                        <Checkbox>Запам'ятати мене</Checkbox>
                       </Form.Item>
 
                       <Form.Item noStyle shouldUpdate>
@@ -238,7 +238,7 @@ const Login = () => {
                               onClick={handleOk}
                               loading={loading}
                             >
-                              Вход
+                              Вхід
                             </Button>
                           );
                         }}
