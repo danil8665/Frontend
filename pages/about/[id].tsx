@@ -4,9 +4,6 @@ import {
   UserOutlined,
   FacebookOutlined,
   InstagramOutlined,
-  SearchOutlined,
-  BulbFilled,
-  BulbOutlined,
   LoginOutlined,
   PlusOutlined,
   LogoutOutlined,
@@ -36,9 +33,9 @@ import { ButtonType } from "antd/lib/button";
 import { NotificationPlacement } from "antd/es/notification/interface";
 import FastOrder from "../FastOrder";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Content, Footer, Sider } = Layout;
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
 
 interface Props {
   id: any;
@@ -59,10 +56,10 @@ const About: React.FC<Props> = ({ id }) => {
     messageApi
       .open({
         type: "loading",
-        content: "Выход",
+        content: "Вихід",
         duration: 1,
       })
-      .then(() => message.success("Вы вышли из аккаунта", 3));
+      .then(() => message.success("Ви вийшли з акаунту", 3));
   };
 
   const logOut = () => {
@@ -79,14 +76,14 @@ const About: React.FC<Props> = ({ id }) => {
     let secondsToGo = 5;
 
     const modal = Modal.success({
-      title: "Спасибо что оставили отзыв!",
-      content: `Это окно закроется через ${secondsToGo} секунд.`,
+      title: "Дякуємо що залишили відгук!",
+      content: `Це вікно закриється через ${secondsToGo} секунд.`,
     });
 
     const timer = setInterval(() => {
       secondsToGo -= 1;
       modal.update({
-        content: `Это окно закроется через ${secondsToGo} секунд.`,
+        content: `Це вікно закриється через ${secondsToGo} секунд.`,
       });
     }, 1000);
 
@@ -95,8 +92,6 @@ const About: React.FC<Props> = ({ id }) => {
       modal.destroy();
     }, secondsToGo * 1000);
   };
-
-  let secondsToGo = 4;
 
   const [visible, setVisible] = useState(false);
 
@@ -182,13 +177,13 @@ const About: React.FC<Props> = ({ id }) => {
                 <Menu.Item key={1}>
                   <Link href={"/"}>
                     <HomeOutlined />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Главная{" "}
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Головна{" "}
                   </Link>
                 </Menu.Item>
                 <Menu.Item key={2}>
                   <Link href={"/addProduct"}>
                     <PlusOutlined />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Добавить товар{" "}
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Додати товар{" "}
                   </Link>
                 </Menu.Item>
                 <Menu.Item
@@ -196,7 +191,7 @@ const About: React.FC<Props> = ({ id }) => {
                   onClick={() => openNotification("bottomRight")}
                 >
                   <UserOutlined />
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Профиль{" "}
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Профіль{" "}
                 </Menu.Item>
               </Menu>
             </Sider>
@@ -220,7 +215,7 @@ const About: React.FC<Props> = ({ id }) => {
                         onClick={logOut}
                         icon={<LogoutOutlined />}
                       >
-                        Выйти
+                        Вийти
                       </Button>
                     </Menu.Item>
                   </div>
@@ -258,7 +253,7 @@ const About: React.FC<Props> = ({ id }) => {
 
                   <div className="about_description">
                     <Card bordered={false}>
-                      <h1>Размер</h1>
+                      <h1>Розмір</h1>
 
                       <Radio.Group
                         name="size"
@@ -277,16 +272,16 @@ const About: React.FC<Props> = ({ id }) => {
                       </Radio.Group>
                       <br />
                       <br />
-                      <Title level={3}>Цена</Title>
+                      <Title level={3}>Ціна</Title>
                       <div className="price_discount">
                         <p className="price">{`${instance.price}`}</p>
                         <p className="discount">{`${instance.discount}`}</p>
                       </div>
-                      <h1>Оценить(по желанию)</h1>
+                      <h1>Оцінити(по бажанню)</h1>
                       <Rate defaultValue={0} />
                       <Form>
                         <Form.Item>
-                          <Title level={4}>Описание:</Title>
+                          <Title level={4}>Опис:</Title>
                           <div className="modelDescription">{`${instance.name}`}</div>
                         </Form.Item>
                       </Form>
@@ -299,14 +294,12 @@ const About: React.FC<Props> = ({ id }) => {
                       >
                         <Form.Item
                           name="comment"
-                          rules={[
-                            { required: true, message: "Напишите что-то" },
-                          ]}
+                          rules={[{ required: true, message: "Напишіть щось" }]}
                         ></Form.Item>
                         <FastOrder />
                       </Form>
                       <div className="comments">
-                        <h1>Напишите отзыв:</h1>
+                        <h1>Напишіть відгук:</h1>
                         <Form
                           name="basic"
                           onFinish={onFinish}
@@ -317,7 +310,7 @@ const About: React.FC<Props> = ({ id }) => {
                           <Form.Item
                             name="comment"
                             rules={[
-                              { required: true, message: "Напишите что-то" },
+                              { required: true, message: "Напишіть щось" },
                             ]}
                           >
                             <TextArea rows={6}></TextArea>
@@ -335,7 +328,7 @@ const About: React.FC<Props> = ({ id }) => {
                                     className="loginFormButton"
                                     disabled={!formIsComplete}
                                   >
-                                    Отправить
+                                    Відправити
                                   </Button>
                                 </div>
                               );
@@ -362,7 +355,6 @@ const About: React.FC<Props> = ({ id }) => {
                   </Link>
                 </div>
               </Footer>
-              {/* </div> */}
             </Layout>
           </Layout>
         </>
@@ -382,13 +374,13 @@ const About: React.FC<Props> = ({ id }) => {
           <Menu.Item key={1}>
             <Link href={"/"}>
               <HomeOutlined />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Главная
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Головна
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </Link>
           </Menu.Item>
           <Menu.Item key={3} onClick={() => openNotification("bottomRight")}>
             <UserOutlined />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Профиль{" "}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Профіль{" "}
           </Menu.Item>
         </Menu>
       </Sider>
@@ -406,7 +398,7 @@ const About: React.FC<Props> = ({ id }) => {
               <Menu.Item>
                 <Link href={"/login"}>
                   <Button type={type} icon={<LoginOutlined />}>
-                    Вход
+                    Вхід
                   </Button>
                 </Link>
               </Menu.Item>
@@ -418,7 +410,7 @@ const About: React.FC<Props> = ({ id }) => {
                     icon={<PlusOutlined />}
                     style={{ marginLeft: -20 }}
                   >
-                    Регистрация
+                    Реєстрація
                   </Button>
                 </Link>
               </Menu.Item>
@@ -457,7 +449,7 @@ const About: React.FC<Props> = ({ id }) => {
 
               <div className="about_description">
                 <Card bordered={false}>
-                  <h1>Размер</h1>
+                  <h1>Розмір</h1>
 
                   <Radio.Group
                     name="size"
@@ -476,16 +468,16 @@ const About: React.FC<Props> = ({ id }) => {
                   </Radio.Group>
                   <br />
                   <br />
-                  <Title level={3}>Цена</Title>
+                  <Title level={3}>Ціна</Title>
                   <div className="price_discount">
                     <p className="price">{`${instance.price}`}</p>
                     <p className="discount">{`${instance.discount}`}</p>
                   </div>
-                  <h1>Оценить(по желанию)</h1>
+                  <h1>Оцінити(по бажанню)</h1>
                   <Rate defaultValue={0} />
                   <Form>
                     <Form.Item>
-                      <Title level={4}>Описание:</Title>
+                      <Title level={4}>Опис:</Title>
                       <div className="modelDescription">{`${instance.name}`}</div>
                     </Form.Item>
                   </Form>
@@ -498,12 +490,12 @@ const About: React.FC<Props> = ({ id }) => {
                   >
                     <Form.Item
                       name="comment"
-                      rules={[{ required: true, message: "Напишите что-то" }]}
+                      rules={[{ required: true, message: "Напишіть щось" }]}
                     ></Form.Item>
                     <FastOrder />
                   </Form>
                   <div className="comments">
-                    <h1>Напишите отзыв:</h1>
+                    <h1>Напишіть відгук:</h1>
                     <Form
                       name="basic"
                       onFinish={onFinish}
@@ -513,7 +505,7 @@ const About: React.FC<Props> = ({ id }) => {
                     >
                       <Form.Item
                         name="comment"
-                        rules={[{ required: true, message: "Напишите что-то" }]}
+                        rules={[{ required: true, message: "Напишіть щось" }]}
                       >
                         <TextArea rows={6}></TextArea>
                       </Form.Item>
@@ -530,7 +522,7 @@ const About: React.FC<Props> = ({ id }) => {
                                 className="loginFormButton"
                                 disabled={!formIsComplete}
                               >
-                                Отправить
+                                Відправити
                               </Button>
                             </div>
                           );
@@ -563,11 +555,3 @@ const About: React.FC<Props> = ({ id }) => {
   );
 };
 export default About;
-
-{
-  /* <Sider theme={theme} collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} breakpoint={'lg'} collapsedWidth={60}>
-<Menu mode='vertical' theme={theme}> 
-  <Menu.Item key={1}><Link href={'/'}><HomeOutlined/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Главная &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Link></Menu.Item>
-</Menu>    
-</Sider> */
-}

@@ -144,20 +144,20 @@ const AddProduct: React.FC = () => {
                 >
                   <br />
                   <br />
-                  <Form.Item label="Добавление продукта"></Form.Item>
-                  <Form.Item name="manufacturer" label="Производитель">
+                  <Form.Item label="Додаваня продукту"></Form.Item>
+                  <Form.Item name="manufacturer" label="Виробник">
                     <Input />
                   </Form.Item>
-                  <Form.Item name="name" label="Название">
+                  <Form.Item name="name" label="Назва">
                     <Input />
                   </Form.Item>
-                  <Form.Item name="price" label="Цена">
+                  <Form.Item name="price" label="Ціна">
                     <InputNumber />
                   </Form.Item>
-                  <Form.Item name="discount" label="Скидка">
+                  <Form.Item name="discount" label="Знижка">
                     <InputNumber />
                   </Form.Item>
-                  <Form.Item name="description" label="Описание продукта">
+                  <Form.Item name="description" label="Опис продукта">
                     <TextArea rows={4} />
                   </Form.Item>
                   <Form.Item name="picture" label="Фото" valuePropName="file">
