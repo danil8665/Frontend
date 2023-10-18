@@ -55,7 +55,7 @@ const Login = () => {
     messageApi
       .open({
         type: "loading",
-        content: "Вход",
+        content: "Вхід",
         duration: 1.5,
       })
       .then(() => message.error("Невірне ім'я акаунту чи пароль", 3));
@@ -189,7 +189,7 @@ const Login = () => {
                   ),
                 },
                 {
-                  label: "Вход",
+                  label: "Вхід",
                   key: "2",
                   children: (
                     <Form
